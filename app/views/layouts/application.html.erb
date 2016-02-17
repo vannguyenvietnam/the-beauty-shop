@@ -8,7 +8,23 @@
 </head>
 <body>
 
-<%= yield %>
+<div class="wrapper">
+		<%= render 'layouts/header' %>
+
+		<%= render 'layouts/navbar' %>
+
+		<%= render 'layouts/cart' %>
+		
+		<div class="row main">
+
+			<%= yield %>
+
+		</div>		
+		
+		<%= render 'layouts/infor' %>
+		
+		<%= render 'layouts/footer' %>
+	</div>	
 
 </body>
 </html>
