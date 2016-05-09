@@ -5,3 +5,33 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+# Catalogues
+Catalogue.create!(name: "Duong da mat")
+Catalogue.create!(name: "Tam & Duong the")
+Catalogue.create!(name: "Trang diem")
+Catalogue.create!(name: "Nuoc hoa")
+Catalogue.create!(name: "Cham soc toc")
+
+# SubCatalogues
+catalogues = Catalogue.all
+5.times do
+  name = Faker::Lorem.word.capitalize
+  catalogues.each { |cata| cata.sub_catalogues.create!(name: name) }
+end
+
+# Products
+catalogues = Catalogue.all
+catalogues.each { |cata|
+	sub_catalogues = cata.sub_catalogues
+	8.times do
+	  name = Faker::Lorem.word.capitalize
+	  price = Faker::Number.between(100, 200)
+	  quantity = Faker::Number.between(300, 500)
+	  description = Faker::Lorem.sentence(5)	  
+	  sub_catalogues.each { |sub_cata| sub_cata.products.create!(name: name,
+	  	                                                   price: price,
+	  	                                                   quantity: quantity,	  	                                                   
+	  	                                                   description: description) }
+	end
+}

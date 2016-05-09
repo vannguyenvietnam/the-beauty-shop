@@ -1,0 +1,16 @@
+<%= render 'shared/sub_catalogues' %>
+
+<div class="col-9 content">	
+	<div class="row product-detail">		
+
+		<div class="col-3 product-image">
+				<%= link_to image_tag("products/1.jpg", alt: "product-image"), '#' %>					
+		</div>	
+		<div class="col-9 product-info">
+				<p>Ten san pham: <%= @product.name %></p>
+				<p>Gia: <%= @product.price %></p>
+				<p>Thong tin san pham: <%= @product.description %></p>				
+		</div>		
+
+	</div>		
+</div>

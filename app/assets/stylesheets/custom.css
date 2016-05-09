@@ -243,4 +243,26 @@ li.active a {
 .sub-menu a:hover {
 	color: #ff4081;
 }
+
+/********** For pagination **********/
+.pagination {
+	clear: both;	
+	max-width: 100%;
+}
+.pagination ul {
+	list-style-type: none;	
+	display: block;		
+	max-width: 100%;
+	padding-top: 30px;
+	text-align: center;
+}
+.pagination ul li {
+	display: inline-block;	
+}
+.pagination a {
+	color: #666;
+}
+.pagination a.active {
+	color: #ff4081;
+}
 /*************** The end ******************/

@@ -1,0 +1,8 @@
+<div class="product">
+	<div class="sanpham">
+		<%= image_tag("products/1.jpg", alt: "product") %>
+		<p class="tensp"><%= product.name %></p>				
+	</div>		
+	<p class="giasp">VND <%= product.price %></p>				
+	<div class="link"><%= link_to "Xem chi tiết", product_path(product) %></div>
+</div>
