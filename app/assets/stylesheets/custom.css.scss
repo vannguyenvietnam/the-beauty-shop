@@ -56,7 +56,7 @@ body {
 	width: 100%;		
 }
 header {
-	background-image: url("banner.jpg");
+	background-image: url(asset-path("banner.jpg"));
 	background-clip: border-box;
 	background-position: center;		
 	min-height: 150px;		
