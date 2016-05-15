@@ -1,7 +1,7 @@
 <div class="row col-12 cart">
-	<ul class="nav cart">
-		<li class="login"><a href="">Đăng nhập | </a></li>
-		<li class="signup"><a href="">Đăng ký | </a></li>
-		<li class="cart"><a href="">Giỏ hàng đang rỗng</a></li>
+	<ul class="nav nav-inline cart">
+		<li><%= link_to 'Đăng nhập |', '#', class: "login" %></li>
+		<li><%= link_to ' Đăng ký | ', '#', class: "signup" %></li>
+		<li><%= render 'layouts/cart_text' %></li>
 	</ul>
 </div>

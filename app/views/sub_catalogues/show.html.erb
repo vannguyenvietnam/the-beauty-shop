@@ -1,8 +1,11 @@
 <%= render 'shared/sub_catalogues' %>
+
 <div class="col-9 content">
+
 	<%= render partial:'shared/poster', locals: { img_url: 'poster.png' } %>
+
 	<div class="row col-12 soluongsp">
-		<p><%= @products.length %> sản phẩm có sẵn</p>
+		<p><%= catalogues.first.products.length %> sản phẩm có sẵn</p>
 	</div>
 	<div class="row col-12 products">
 			
@@ -10,5 +13,6 @@
 
 		<%= will_paginate @products %>
 
-	</div>				
+	</div>		
+			
 </div>

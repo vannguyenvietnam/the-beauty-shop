@@ -32,6 +32,13 @@ catalogues.each { |cata|
 	  sub_catalogues.each { |sub_cata| sub_cata.products.create!(name: name,
 	  	                                                   price: price,
 	  	                                                   quantity: quantity,	  	                                                   
-	  	                                                   description: description) }
+	  	                                                   description: description,
+	  	                                                   active: true) }
 	end
 }
+
+# Order status
+OrderStatus.create! id: 1, name: "In Progress"
+OrderStatus.create! id: 2, name: "Placed"
+OrderStatus.create! id: 3, name: "Shipped"
+OrderStatus.create! id: 4, name: "Cancelled"

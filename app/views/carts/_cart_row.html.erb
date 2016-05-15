@@ -1,0 +1,36 @@
+<div class="row cart-item">
+ 
+  <div class="col-4">
+    <p style="color: #ff4081"><%= product.name %></p>
+  </div>
+
+  <div class="col-2">
+    <p class="text-center text-green">
+      <%= number_to_currency order_item.total_price %>
+    </p>
+  </div>  
+
+  <div class="col-2">
+    <p class="text-center">
+      <%= number_to_currency order_item.unit_price %>
+    </p> 
+  </div>    
+  
+  <div class="col-3 row form">
+    <%= form_for order_item, remote: true do |f| %>
+    <div class="col-6">      
+      <%= f.number_field :quantity, value: order_item.quantity.to_i, min: 1 %>     
+    </div> 
+
+    <div class="col-6">        
+      <%= f.hidden_field :product_id, value: product.id %>      
+      <%= f.submit "Update Quantity", class: "btn btn-primary" %>         
+    </div> 
+    <% end %>   
+  </div>   
+
+  <div class="col-1">
+    <%= link_to "Delete", order_item, { data: { confirm: "Are you sure you wish to delete the product '#{order_item.product.name}' from your cart?" }, method: :delete, remote: true, class: "btn" } %>
+  </div>  
+  
+</div>
