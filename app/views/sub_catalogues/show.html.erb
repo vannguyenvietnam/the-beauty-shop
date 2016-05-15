@@ -5,7 +5,7 @@
 	<%= render partial:'shared/poster', locals: { img_url: 'poster.png' } %>
 
 	<div class="row col-12 soluongsp">
-		<p><%= catalogues.first.products.length %> sản phẩm có sẵn</p>
+		<p><%= @sub_catalogue.products.length %> sản phẩm có sẵn</p>
 	</div>
 	<div class="row col-12 products">
 			
