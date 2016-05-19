@@ -42,3 +42,14 @@ OrderStatus.create! id: 1, name: "In Progress"
 OrderStatus.create! id: 2, name: "Placed"
 OrderStatus.create! id: 3, name: "Shipped"
 OrderStatus.create! id: 4, name: "Cancelled"
+
+# Users
+User.create!(name: "Van Nguyen",
+	           email: 'bichvannguyenvnn@gmail.com',
+	           password: 'foobar',
+	           password_confirmation: 'foobar',
+	           admin: true)
+User.create!(name: "Guest",
+	           email: 'guest@gmail.com',
+	           password: 'foobar',
+	           password_confirmation: 'foobar')

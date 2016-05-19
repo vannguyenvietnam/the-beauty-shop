@@ -1,34 +1,5 @@
-<div class="col-3">
-	<div class="menu order-detail">
-		<h3>YOUR SHOPPING CART</h3>
-		<ul class="nav sub-menu">
-			<li>
-				<div class="row">
-					<div class="col-6"><p>Sub total:</p></div>
-					<div class="col-6"><p class="text-right"><%= number_to_currency @order.subtotal %></p></div>					
-				</div>
-			</li>	
-			<li>
-				<div class="row">
-					<div class="col-6"><p>Tax (VAT) 10%:</p></div>
-					<div class="col-6"><p class="text-right"><%= number_to_currency @order.tax %></p></div>					
-				</div>
-			</li>		
-			<li class="border-bottom">
-				<div class="row">
-					<div class="col-6"><p>Shipping:</p></div>
-					<div class="col-6"><p class="text-right"><%= number_to_currency @order.shipping %></p></div>					
-				</div>
-			</li>		
-			<li>
-				<div class="row">
-					<div class="col-6"><p class="text-bold">Total:</p></div>
-					<div class="col-6"><p class="text-right text-bold text-green"><%= number_to_currency @order.total %></p></div>					
-				</div>
-			</li>				
-		</ul>
-		<div class="link"><%= link_to 'Place order', '#' %></div>
-	</div>				
+<div class="col-3 cart-detail">
+	<%= render 'cart_detail' %>
 </div>
 
 <div class="col-9 content">	
@@ -40,7 +11,7 @@
 
 	<div class="row customer-service">
 		<div class="col-2">
-			<%= link_to "Tiep tuc mua hang", root_path, class: "text text-pink text-hover text-bold" %>
+			<%= link_to "Tiep tuc mua hang", root_path, class: "link link-inline text-bold" %>
 		</div>
 		<div class="col-10">
 			<ul class="nav nav-inline">

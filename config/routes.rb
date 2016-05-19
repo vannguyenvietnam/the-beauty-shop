@@ -1,10 +1,16 @@
 Rails.application.routes.draw do
-   
+  get 'login' => 'sessions#new' 
+  get 'signup' => 'users#new'
+  post 'login' => 'sessions#create'
+  delete 'logout' => 'sessions#destroy'
+  
   resources :products
   resources :catalogues
   resources :sub_catalogues
   resource :cart, only: [:show]
   resources :order_items, only: [:create, :update, :destroy]
+  resources :users
+  resources :password_resets, only: [:new, :create, :edit, :update]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

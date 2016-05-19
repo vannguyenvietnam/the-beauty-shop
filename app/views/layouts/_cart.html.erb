@@ -1,7 +1,12 @@
 <div class="row col-12 cart">
 	<ul class="nav nav-inline cart">
-		<li><%= link_to 'Đăng nhập |', '#', class: "login" %></li>
-		<li><%= link_to ' Đăng ký | ', '#', class: "signup" %></li>
+		<% if logged_in? %>
+			<li><%= link_to "#{current_user.name} | ", user_path(current_user), class: "text-pink" %></li>
+      <li><%= link_to "Log out | ", logout_path, method: "delete", class: 'text-pink' %></li>
+    <% else %>
+      <li><%= link_to 'Log in | ', login_path, class: "text-pink" %></li>
+      <li><%= link_to 'Sign up | ', signup_path, class: "text-pink" %></li>
+    <% end %>			
 		<li><%= render 'layouts/cart_text' %></li>
 	</ul>
 </div>

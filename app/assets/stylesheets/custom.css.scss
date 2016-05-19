@@ -25,20 +25,24 @@ Tham khảo trên http://www.w3schools.com/css/css_rwd_intro.asp
 	.col-10 {width: 83.33%;}
 	.col-11 {width: 91.66%;}
 	.col-12 {width: 100%;}
-}
+
 /******** For Menu ****************/
-.navbar {		
-	height: 45px;
-	line-height: 45px;		
-}		
-.top-menu li, .cart li {
-	display: inline-block;	
-}	
-.top-menu a {padding: 0px 10px;}
-.menu {		
-	box-shadow: 1px 1px 2px #bbb;
-	margin-right: 10px;	
-	min-height: 285px;		
+	.navbar {		
+		height: 45px;
+		line-height: 45px;		
+	}		
+	.top-menu li, .cart li {
+		display: inline-block;	
+	}	
+	.top-menu a {padding: 0px 10px;}
+	.menu {		
+		box-shadow: 1px 1px 2px #bbb;
+		margin-right: 10px;	
+		min-height: 285px;		
+	}
+	.form-control {
+		width: 100%;
+	}
 }
 
 /**************** Basic Layout *************/
@@ -74,11 +78,10 @@ h1.logo {
 span.slogan {
 	color: #fff;
 	font-weight: lighter;
+	font-size: 15px;
 }
 
-li a.signup, li a.login {
-	color: #ff4081;	
-}
+li a.text-pink { color: #ff4081; }
 div.cart {
 	border: 1px solid #fff;
 	height: 50px;
@@ -94,12 +97,13 @@ img {
 	margin: 0px;
 	padding: 0px;
 }
-h3 {
+h1 {
+	margin-top: 0;
+	color: #666;
+}
+h2, h3 {
 	color: #ff4081;
 	margin-top: 0;	
-}
-p {
-	font-size: 11px;	
 }
 h4 {
 	color: #666;
@@ -127,6 +131,10 @@ select {
 	font-size: 11px;
 	width: 49%;
 }
+p, label, span { 
+	font-size: 11px;	
+	color: #666;
+}
 
 footer {		
 	color: #666;
@@ -138,6 +146,24 @@ footer {
 	margin-top: 30px;
 }
 
+/********** For flash ******************/
+.flash {
+	max-height: 30px;
+	line-height: 30px;
+	text-align: center;	
+}
+.alert {		
+	font-size: 11px;
+	color: #666;
+}
+.alert-success {
+	color: #4caf50;	
+	background-color: #c8e6c9;
+}
+.alert-danger {
+	color: #f44336;
+	background-color: #ffcdd2;
+}
 /********** For information row ***************/
 .infor {
 	border-top: 1px solid #bbb;
@@ -178,19 +204,6 @@ p.giasp {
 	margin-top: 10px;
 	margin-bottom: 5px;
 }
-.link a {
-	text-decoration: none;
-	display: block;
-	background-color: #ff4081;
-	color: #fff;
-	font-size: 11px;
-	text-align: center;
-	padding: 5px 0px;
-}
-.link a:hover, .link a:active {
-	background-color: #ccc;
-	color: #ff4081;
-}
 
 /**************** For shopping cart *****************/
 .order-detail {
@@ -204,8 +217,8 @@ p.giasp {
 	border-top: 1px solid #bbb;
 }
 .form-control {
-	width: 100%;
-	margin-bottom: 2px;	
+	width: 100%;	
+	margin-bottom: 11px;	
 	height: 22px;
 }
 .cart-item {
@@ -240,7 +253,40 @@ p.giasp {
 	text-align: right;
 }
 
-/*********** For button ***********/
+/*********** For user *********/
+.user-form {
+	position: relative;
+	width: 40%;
+	left: 30%;
+}
+#error_explanation{
+	color: red;
+}
+#error_explanation ul {
+	list-style: number;
+	font-size: 11px;
+}
+.checkbox {
+	display: block;
+	width: 100%;	
+	height: 22px;
+	line-height: 22px;
+	margin-bottom: 11px;	
+	span {
+		margin-left: 0px;	
+		display: inline-block;
+		position: relative;
+		top: -7px;			
+	}
+	input { 
+		display: inline-block;
+		width: auto;		
+		margin-left: 0;
+		margin-top: -1px;
+	}
+}
+
+/*********** For button and link ***********/
 .btn {
 	color: #ff4081;
 	font-size: 11px;
@@ -250,8 +296,8 @@ p.giasp {
 	display: block;
 	height: 22px;	
 }
-.btn:hover {text-decoration: underline;}
-.btn-primary, a.btn-primary {
+.btn-default:hover {text-decoration: underline;}
+.btn-primary {
 	background-color: #ff4081;
 	color: #fff;
 }
@@ -264,6 +310,30 @@ p.giasp {
 	height: 33px;		
 }
 .btn-21 { height: 21px; }
+
+
+.link {
+	text-decoration: none;
+	display: block;	
+	font-size: 11px;	
+}
+.link-primary {	
+	background-color: #ff4081;
+	color: #fff;	
+	text-align: center;
+	padding: 5px 0px;
+}
+.link-primary:hover, .link-primary:active {
+	background-color: #ccc;
+	color: #ff4081;
+}
+.link-inline { 
+	display: inline-block;
+	color: #ff4081;
+}
+.link-inline:hover, .link-inline:active {
+	text-decoration: underline;
+}
 
 /********** For text ******************/
 .text { font-size: 11px; }

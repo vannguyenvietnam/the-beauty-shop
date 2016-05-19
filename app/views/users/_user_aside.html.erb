@@ -1,0 +1,13 @@
+<aside class="col-3">
+	<section class="menu user-aside">
+		<h3><%= @user.name.upcase %></h3>		
+		<ul class="nav sub-menu">			
+			<li><%= link_to "Watching list", '#' %></li>
+			<li><%= link_to "Shopping cart", cart_path %></li>
+			<li><%= link_to "Update profile", edit_user_path(@user) %></li>				
+			<li class="last">
+				<%= link_to "Log out", logout_path, method: 'delete' %>
+			</li>
+		</ul>
+	</section>				
+</aside>
