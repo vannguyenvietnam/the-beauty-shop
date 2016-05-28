@@ -9,6 +9,18 @@ class Order < ActiveRecord::Base
   	order_items.collect { |oi| oi.valid? ? (oi.quantity * oi.unit_price) : 0 }.sum
   end
 
+  def tax
+    subtotal / 11
+  end
+
+  def shipping
+    return 0
+  end
+
+  def total
+    subtotal + shipping
+  end
+
   private
 
   	def set_order_status
@@ -20,9 +32,9 @@ class Order < ActiveRecord::Base
   	end
 
     def update_tax_shipping_total
-      self[:tax] = subtotal / 11
-      self[:shipping] = 0
-      self[:total] = subtotal + self[:shipping].to_i
+      self[:tax] = tax
+      self[:shipping] = shipping
+      self[:total] = total
     end
 
 end

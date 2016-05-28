@@ -1,11 +1,14 @@
 <% provide(:title, @user.name) %>
 
 <div class="row">
+	<% if @user.admin? %>
+		<%= render 'admin_aside' %>
+	<% else %>
+		<%= render 'user_aside' %>
+	<% end %>
 
-	<%= render 'user_aside' %>
-
-	<div class="col-9">
-		<p>User's page</p>
+	<div class="col-9 user-page">
+		<%= render 'watching_list' %>
 	</div>
 
 </div>

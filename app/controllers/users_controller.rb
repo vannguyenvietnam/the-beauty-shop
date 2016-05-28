@@ -1,14 +1,16 @@
 class UsersController < ApplicationController
-	before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
-  before_action :correct_user, only: [:edit, :update]
-  before_action :admin_user, only: :destroy
+	before_action :logged_in_user, only: [:index, :show, :edit, :update, :destroy]
+  before_action :correct_user, only: [:edit, :update, :show]
+  before_action :admin_user, only: [:destroy, :index]
+  respond_to :html, :js
 
   def index
     @users = User.paginate(page: params[:page])
   end
 
   def show
-  	@user = User.find(params[:id])    
+  	@user = User.find(params[:id]) 
+    @products = @user.watching.paginate(page: params[:page], per_page: 8) 
   end
 
   def new
@@ -46,6 +48,11 @@ class UsersController < ApplicationController
     User.find(params[:id]).destroy
     flash[:success] = "User deleted"
     redirect_to users_url
+  end
+
+  def watching
+    @user = current_user
+    @products = @user.watching.paginate(page: params[:page], per_page: 8) 
   end
 
   private

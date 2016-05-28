@@ -1,11 +1,28 @@
-<%= form_for(@product, html: { multipart: true }) do |f| %>
-  <%= render 'shared/error_messages', object: f.object %>
-  <div class="field">
-  	<%= f.text_field :name, placeholder: "Name..." %>
-    <%= f.text_area :description, placeholder: "Description..." %>
-  </div>
-  <%= f.submit "Add", class: "btn btn-primary" %>
-  <span class="picture">
-    <%= f.file_field :picture %>
-  </span>
-<% end %>
+<div class="form">
+	<legend>Loại sản phẩm</legend>
+			<select name="loaiSpChinh">
+				<option value="duongDaMat">Dưỡng da mặt</option>
+				<option value="trangDiem">Trang điểm</option>
+				<option value="tamDuongThe">Tắm & dưỡng thể</option>
+				<option value="nuocHoa">Nước hoa</option>
+				<option value="chamSocToc">Chăm sóc tóc</option>
+			</select>
+
+	<%= form_for(@product, html: { multipart: true }) do |f| %>
+	  <%= render partial: 'shared/error_messages', locals: { object: f.object } %>
+
+		<div id="sub-catalogues">
+			<%= f.collection_select(:sub_catalogue_id, SubCatalogue.all, :id, :name) %>
+		</div>
+
+	 	<%= f.text_field :name, placeholder: "Name" %>
+	 	<%= f.text_field :price, placeholder: "Price" %>
+	 	<%= f.number_field :quantity, value: 1, min: 1 %>
+	  <%= f.text_area :description, placeholder: "Description..." %>
+	  <%= f.submit "Add", class: "btn btn-primary" %>
+	  <span class="picture">
+	    <%= f.file_field :picture %>
+	  </span>
+
+	<% end %>
+</div>

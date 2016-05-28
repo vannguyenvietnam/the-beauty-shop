@@ -1,6 +1,9 @@
-<li>  
-  <%= link_to user.name, user %>
-  <% if current_user.admin? && !current_user?(user) %>
-  	| <%= link_to "delete", user, method: :delete, data: { confirm: "You sure?" } %>
-  <% end %>
-</li>
+<div class="row user"> 
+	<div class="col-3"><%= link_to user.name, user_path(user), class: 'text text-grey' %></div>
+	<div class="col-3"><span class="text"><%= user.email %></span></div>
+	<div class="col-6">
+	  <% if current_user.admin? && !current_user?(user) %>
+	  	<%= link_to "delete", user, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-default text-left' %>
+	  <% end %>
+  </div>
+</div>

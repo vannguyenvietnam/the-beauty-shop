@@ -1,0 +1,12 @@
+<h3 class="text-center">Watching products</h3>
+<div class="row col-12 soluongsp">
+	<p><%= @products.length %> sản phẩm</p>
+</div>
+
+<div class="row col-12 products">
+		
+	<%= render @products %>
+
+	<%= will_paginate @products %>
+
+</div>

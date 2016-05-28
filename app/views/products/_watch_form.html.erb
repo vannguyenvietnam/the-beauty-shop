@@ -1,0 +1,13 @@
+<% if logged_in? %>
+	<% if current_user.watching?(product) %>
+		<%= form_for(current_user.watchings.find_by(product_id: product.id),
+       html: { method: :delete }, remote: true) do |f| %>
+		  <%= f.submit "Unwatch", class: "btn btn-default" %>
+		<% end %>
+	<% else %>
+		<%= form_for(current_user.watchings.new, remote: true) do |f| %>
+		  <%= hidden_field_tag :product_id, product.id %>
+		  <%= f.submit "Watch", class: "btn btn-default" %>
+		<% end %>
+	<% end %>
+<% end %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160516084526) do
+ActiveRecord::Schema.define(version: 20160522221037) do
 
   create_table "catalogues", force: :cascade do |t|
     t.string   "name"
@@ -86,5 +86,16 @@ ActiveRecord::Schema.define(version: 20160516084526) do
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
+
+  create_table "watchings", force: :cascade do |t|
+    t.integer  "product_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "watchings", ["product_id", "user_id"], name: "index_watchings_on_product_id_and_user_id", unique: true
+  add_index "watchings", ["product_id"], name: "index_watchings_on_product_id"
+  add_index "watchings", ["user_id"], name: "index_watchings_on_user_id"
 
 end

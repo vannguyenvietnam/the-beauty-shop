@@ -1,8 +1,26 @@
 Rails.application.routes.draw do
+  get 'watchings/new'
+
+  get 'watchings/create'
+
+  get 'watchings/destroy'
+
   get 'login' => 'sessions#new' 
   get 'signup' => 'users#new'
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
+
+  resources :users do
+    member do
+      get :watching
+    end
+  end
+
+  resources :products do
+    member do
+      get :watchers
+    end
+  end
   
   resources :products
   resources :catalogues
@@ -11,6 +29,7 @@ Rails.application.routes.draw do
   resources :order_items, only: [:create, :update, :destroy]
   resources :users
   resources :password_resets, only: [:new, :create, :edit, :update]
+  resources :watchings
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

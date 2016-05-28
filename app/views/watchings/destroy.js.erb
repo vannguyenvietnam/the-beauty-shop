@@ -1,0 +1,2 @@
+$("#watch-form-<%= @product.id %>").html("<%= escape_javascript(render partial: 'products/watch_form', locals: { product: @product }) %>")
+$(".user-page").html("<%= escape_javascript(render 'users/watching_list') %>")

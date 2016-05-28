@@ -46,28 +46,20 @@ Tham khảo trên http://www.w3schools.com/css/css_rwd_intro.asp
 }
 
 /**************** Basic Layout *************/
-header, nav, footer {
-	display: block;
-}
-html {
-	font-family: "Lucida Sans", sans-serif;
-}
+header, nav, footer {  display: block; }
+html { font-family: "Lucida Sans", sans-serif; }
 body {
 	margin-top: 0;
 	padding: 0;
 }
-.wrapper {
-	width: 100%;		
-}
+.wrapper { 	width: 100%; }
 header {
 	background-image: url(asset-path("banner.jpg"));
 	background-clip: border-box;
 	background-position: center;		
 	min-height: 150px;		
 }
-div.logo {
-	text-align: center;	
-}
+div.logo { 	text-align: center;	}
 h1.logo {
 	color: #ff4081;
 	font-weight: bold;
@@ -105,13 +97,9 @@ h2, h3 {
 	color: #ff4081;
 	margin-top: 0;	
 }
-h4 {
-	color: #666;
-}
+h4 { color: #666; }
 a {text-decoration: none;}
-input[type=submit] {
-	box-shadow: none;
-}
+input[type=submit] { box-shadow: none; }
 fieldset {
 	border: none;
 	padding-bottom: 0;
@@ -119,9 +107,7 @@ fieldset {
 	margin-top: 12px;
 }
 fieldset.first {margin-top: 0;}
-legend {
-	font-size: 11px;
-}
+legend { font-size: 11px; }
 input, textarea {
 	width: 100%;	
 	font-size: 11px;	
@@ -189,17 +175,11 @@ p.us {
 	box-shadow: 1px 1px 2px #bbb;
 	margin: 3px ;
 }
-.sanpham {
-	max-height: 50%;			
-}
+.sanpham { max-height: 50%;	}
 
-p.tensp {  
-	height: 30px;
-}
+p.tensp {  height: 30px;}
 
-p.giasp, .soluongsp p {
-	color: #444;
-}
+p.giasp, .soluongsp p { color: #444; }
 p.giasp {
 	margin-top: 10px;
 	margin-bottom: 5px;
@@ -213,9 +193,7 @@ p.giasp {
 	border-radius: 5px;
 	margin-bottom: 5px;
 }
-.shopping-cart {
-	border-top: 1px solid #bbb;
-}
+.shopping-cart { border-top: 1px solid #bbb; }
 .form-control {
 	width: 100%;	
 	margin-bottom: 11px;	
@@ -231,9 +209,7 @@ p.giasp {
 	display: block;
 	width: 100%;
 }
-.form {
-	max-height: 100%;
-}
+.form { max-height: 100%; }
 
 #order_item_quantity {	
 	height: 22px;
@@ -249,19 +225,15 @@ p.giasp {
 	height: 40px;	
 	line-height: 40px;
 }
-.customer-service ul {
-	text-align: right;
-}
+.customer-service ul { text-align: right; }
 
 /*********** For user *********/
-.user-form {
+.user-form, .form {
 	position: relative;
 	width: 40%;
 	left: 30%;
 }
-#error_explanation{
-	color: red;
-}
+#error_explanation { color: red; }
 #error_explanation ul {
 	list-style: number;
 	font-size: 11px;
@@ -284,6 +256,12 @@ p.giasp {
 		margin-left: 0;
 		margin-top: -1px;
 	}
+}
+.user { 
+	margin-bottom: 5px;
+	height: 22px;
+	line-height: 22px;
+	border-bottom: 1px solid #bbb;
 }
 
 /*********** For button and link ***********/
@@ -311,7 +289,6 @@ p.giasp {
 }
 .btn-21 { height: 21px; }
 
-
 .link {
 	text-decoration: none;
 	display: block;	
@@ -331,9 +308,7 @@ p.giasp {
 	display: inline-block;
 	color: #ff4081;
 }
-.link-inline:hover, .link-inline:active {
-	text-decoration: underline;
-}
+.link-inline:hover { text-decoration: underline; }
 
 /********** For text ******************/
 .text { font-size: 11px; }
@@ -344,15 +319,12 @@ p.giasp {
 .text-green { color: green; }
 .text-hover:hover { text-decoration: underline; }
 .text-bold { font-weight: bold; }
+.text-grey { color: #666; }
 .border-bottom { border-bottom: 1px solid #bbb; }
 
 /**************** For Admin **************/
-.quan-ly {
-	margin-top: 30px;
-}
-input[name="giaSp"] {
-	width: 49%;
-}
+.quan-ly { margin-top: 30px; }
+input[name="giaSp"] { width: 49%; }
 
 /**************** For top menu *************/
 .navbar {	
@@ -364,12 +336,9 @@ input[name="giaSp"] {
 	padding: 3px 10px;	
 	font-weight: bolder;
 }
-.top-menu a:hover, .top-menu a:active {
-	color: #ff4081;
-}
-li.active a {
-	color: #ff4081;
-}
+.top-menu a:hover { color: #ff4081; }
+li a.active { color: #ff4081; }
+
 /*********** For sub menu ****************/
 .menu {
 	box-shadow: 1px 1px 0px #bbb;	
@@ -385,9 +354,7 @@ li.active a {
 	padding-bottom: 5px;	
 }
 .sub-menu li.last a {border-bottom: none;}
-.sub-menu a:hover {
-	color: #ff4081;
-}
+.sub-menu a:hover { color: #ff4081; }
 
 /************ For nav *************/
 .nav {
@@ -404,9 +371,7 @@ li.active a {
 }
 
 /************ Inline nav ***********/
-.nav-inline li {
-	display: inline-block;	
-}
+.nav-inline li { display: inline-block;	}
 ul.nav-inline li {
 	height: 100%;
 	line-height: 100%;		
@@ -415,29 +380,23 @@ ul.nav-inline a {
 	font-weight: 100;
 	font-size: 10px;
 }
-ul.nav-inline a:hover {
-	text-decoration: underline;
-}
+ul.nav-inline a:hover { text-decoration: underline; }
 
 /********** For pagination **********/
-.pagination {
+.pagination {	
 	clear: both;	
-	max-width: 100%;
-}
-.pagination ul {
-	list-style-type: none;	
-	display: block;		
-	max-width: 100%;
-	padding-top: 30px;
+	width: 100%;
+	display: block;
+	padding-top: 30px;	
 	text-align: center;
+	font-size: 15px;
 }
-.pagination ul li {
-	display: inline-block;	
-}
-.pagination a {
-	color: #666;
-}
-.pagination a.active {
+.pagination span { font-size: 15px; }
+.pagination ul { list-style-type: none;	}
+.pagination ul li { display: inline-block; }
+.pagination a { color: #666; }
+.pagination em.current {
 	color: #ff4081;
+	font-style: normal;
 }
 /*************** The end ******************/

@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+	has_many :watchings, dependent: :destroy
+	has_many :watching, through: :watchings, source: :product
+
 	attr_accessor :remember_token, :reset_token
 	before_save :downcase_email
 	validates :name, presence: true, length: { maximum: 50 }
@@ -54,6 +57,21 @@ class User < ActiveRecord::Base
 	def password_reset_expired?
 		reset_send_at < 2.hours.ago
 	end	
+
+	# Watch a product
+	def watch(product)
+		watchings.create(product_id: product.id)
+	end
+
+	# Unwatch a product
+	def unwatch(product)
+		watchings.find_by(product_id: product.id).destroy
+	end
+
+	# Returns true if the current user is watch the product
+	def watching?(product)
+		watching.include?(product)
+	end
 
 	private
 

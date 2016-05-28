@@ -9,6 +9,11 @@ gem 'sass-rails', '5.0.2'
 gem 'uglifier', '2.5.3'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '4.1.0'
+# For using respond_to
+gem 'responders', '~> 2.0'
+# For using active_link_to
+gem 'active_link_to'
+
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
@@ -20,15 +25,18 @@ gem 'turbolinks', '2.3.0'
 gem 'jbuilder', '2.2.3'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '0.4.0', group: :doc
+
 # Bootstrap gem
-gem 'bootstrap-sass', '3.2.0.0'
+# gem 'bootstrap-sass', '3.2.0.0'
+
 # For secure password
 gem 'bcrypt', '3.1.7'
 # For making fake users
 gem 'faker', '1.4.2'
 # For pagination
 gem 'will_paginate',           '3.0.7'
-gem 'bootstrap-will_paginate', '0.0.10'
+# gem 'bootstrap-will_paginate', '0.0.10'
+
 # For upload image
 gem 'carrierwave',             '0.10.0'
 gem 'mini_magick',             '3.8.0'

@@ -3,6 +3,36 @@
 		<%= image_tag("products/1.jpg", alt: "product") %>
 		<p class="tensp"><%= product.name %></p>				
 	</div>		
-	<p class="giasp">VND <%= product.price %></p>				
-	<div><%= link_to "Xem chi tiết", product_path(product), class: 'link link-primary' %></div>
+	
+	<div class="row">
+		<div class="col-6">
+			<p class="giasp">VND <%= product.price %></p>	
+		</div>
+		<div class="col-6">
+			<p class="text text-right">ID: <%= product.id %></p>	
+		</div>
+	</div>	
+
+	<div class="row" style="height: 22px">		
+		<%= form_for current_order.order_items.new, remote: true do |f| %>			
+		<div class="col-4">							
+      <%= f.number_field :quantity, value: 1, min: 1 %>	          
+      <%= f.hidden_field :product_id, value: product.id %>	          
+    </div>
+    <div class="col-8">	 
+    	<%= f.submit "Them vao gio hang", class: "btn btn-primary btn-21" %>	               
+    </div>    
+    <% end %>       
+ 	</div>	
+	
+	<div class="row" style="margin-top: 7px">
+		<div class="col-6">
+			<%= link_to "Xem chi tiết", product_path(product), class: 'btn btn-default text-left' %>
+		</div>	
+
+		<div class="col-6" id="watch-form-<%= product.id %>">
+			<%= render partial: 'products/watch_form', locals: { product: product } %>
+		</div>		
+	</div>
+
 </div>
