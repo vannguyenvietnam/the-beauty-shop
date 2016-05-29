@@ -1,11 +1,8 @@
 class Catalogue < ActiveRecord::Base
-	has_many :sub_catalogues
+	has_many :sub_catalogues, class_name: "Catalogue", foreign_key: "parent_id", dependent: :destroy
+	belongs_to :parent, class_name: "Catalogue"
+	has_many :products
 
-	#validates :name, presense: true
-
-	def products
-		sub_catalogue_ids = "SELECT id FROM sub_catalogues WHERE catalogue_id = :cata_id"
-		Product.where("sub_catalogue_id IN (#{sub_catalogue_ids})", cata_id: id)
-	end
+	validates :name, presence: true	
 
 end

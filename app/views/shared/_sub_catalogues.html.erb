@@ -1,6 +1,6 @@
 <div class="col-3">
 	<div class="menu">
-		<h3><%= sub_catalogues.first.catalogue.name.upcase %></h3>
+		<h3><%= sub_catalogues[0].parent.name.upcase %></h3>
 		<ul class="nav sub-menu">
 			<% for i in 0..(sub_catalogues.length - 2) do  %>
 				

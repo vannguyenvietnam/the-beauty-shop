@@ -1,0 +1,11 @@
+<h4>Sub catalogues list</h4>
+
+<div id="new-form">
+	<%= render partial: 'new_form', locals: { parent_id: @catalogue.id, placeholder: 'New sub catalogue' } %>
+</div>
+
+<div class="sub-catalogues" style="margin-top: 10px;">
+	<% @catalogue.sub_catalogues.each do |sub| %>	
+		<%= render partial: 'sub_catalogue', locals: { sub: sub } %>
+	<% end %>
+</div>

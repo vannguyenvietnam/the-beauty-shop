@@ -13,28 +13,32 @@ Catalogue.create!(name: "Trang diem")
 Catalogue.create!(name: "Nuoc hoa")
 Catalogue.create!(name: "Cham soc toc")
 
+catalogues = Catalogue.where("parent_id = :parent_id", parent_id: 0)
+
 # SubCatalogues
-catalogues = Catalogue.all
-5.times do
-  name = Faker::Lorem.word.capitalize
-  catalogues.each { |cata| cata.sub_catalogues.create!(name: name) }
-end
+catalogues.each { |cata|
+	5.times do
+	  name = Faker::Lorem.word.capitalize
+	  cata.sub_catalogues.create!(name: name)
+	end
+}
 
 # Products
-catalogues = Catalogue.all
 catalogues.each { |cata|
 	sub_catalogues = cata.sub_catalogues
-	8.times do
-	  name = Faker::Lorem.word.capitalize
-	  price = Faker::Number.between(100, 200)
-	  quantity = Faker::Number.between(300, 500)
-	  description = Faker::Lorem.sentence(5)	  
-	  sub_catalogues.each { |sub_cata| sub_cata.products.create!(name: name,
-	  	                                                   price: price,
-	  	                                                   quantity: quantity,	  	                                                   
-	  	                                                   description: description,
-	  	                                                   active: true) }
-	end
+	sub_catalogues.each { |sub_cata|
+		8.times do
+		  name = Faker::Lorem.word.capitalize
+		  price = Faker::Number.between(100, 200)
+		  quantity = Faker::Number.between(300, 500)
+		  description = Faker::Lorem.sentence(5)	  
+		  sub_cata.products.create!(name: name,
+		  													description: description,
+		                            price: price,
+		                            quantity: quantity,                 
+		                            active: true)
+		end
+	}
 }
 
 # Order status

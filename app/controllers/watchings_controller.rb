@@ -1,4 +1,5 @@
 class WatchingsController < ApplicationController
+  before_action :logged_in_user
 	respond_to :html, :js
 
   def new

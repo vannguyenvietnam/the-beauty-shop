@@ -1,10 +1,5 @@
 Rails.application.routes.draw do
-  get 'watchings/new'
-
-  get 'watchings/create'
-
-  get 'watchings/destroy'
-
+  
   get 'login' => 'sessions#new' 
   get 'signup' => 'users#new'
   post 'login' => 'sessions#create'

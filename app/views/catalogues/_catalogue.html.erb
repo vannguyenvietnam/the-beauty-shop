@@ -1,0 +1,21 @@
+<div id="catalogue-<%= catalogue.id %>" class="row" style="margin-bottom: 20px;">
+	<div class="col-9 row">
+		<%= form_for(catalogue, remote: true) do |f| %>
+		<div class="col-10">      
+      <%= f.text_field :name %>     
+    </div> 
+    <div class="col-2">   
+    	<%= f.hidden_field :parent_id, value:  catalogue.parent_id %>    
+      <%= f.submit "Update", class: "btn btn-default" %>         
+    </div> 
+    <% end %>   
+	</div>
+	<div class="col-2">
+		<%= link_to 'Sub-catalogues', catalogue_path(catalogue), remote: true, class: "btn btn-default" %>
+	</div>	
+	<div class="col-1">
+		<%= link_to "Delete", catalogue, method: :delete, data: { confirm: "You sure?" }, remote: true, class: 'btn btn-default' %>
+	</div>
+	
+	<div id="sub-catalogues-list-<%= catalogue.id %>" style="background-color: #fafafa; padding: 11px 30px;"></div>
+</div>

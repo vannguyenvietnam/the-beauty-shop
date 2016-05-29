@@ -1,9 +1,7 @@
-<nav class="row col-12 navbar">
-	<ul class="nav top-menu">
-		<% catalogues.each do |c| %>
-			<li><%= active_link_to c.name.upcase, catalogue_path(c) %></li>
-		<% end %>
-		<li><%= link_to 'Khuyen mai'.upcase, '#' %></li>
-		<li><%= link_to 'Tim cua hang'.upcase, '#' %></li>
-	</ul>
-</nav>
+<ul class="nav top-menu">
+	<% catalogues.each do |c| %>
+		<li><%= active_link_to c.name.upcase, catalogue_path(c) %></li>
+	<% end %>
+	<li><%= link_to 'Khuyen mai'.upcase, '#' %></li>
+	<li><%= link_to 'Tim cua hang'.upcase, '#' %></li>
+</ul>

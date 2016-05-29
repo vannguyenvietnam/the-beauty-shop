@@ -115,7 +115,7 @@ input, textarea {
 input, select {height: 22px;}
 select {
 	font-size: 11px;
-	width: 49%;
+	width: 100%;
 }
 p, label, span { 
 	font-size: 11px;	
@@ -309,6 +309,7 @@ p.giasp {
 	color: #ff4081;
 }
 .link-inline:hover { text-decoration: underline; }
+.background-grey { background-color: #ccc; }
 
 /********** For text ******************/
 .text { font-size: 11px; }

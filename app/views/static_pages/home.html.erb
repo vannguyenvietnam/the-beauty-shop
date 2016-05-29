@@ -4,12 +4,8 @@
 
 	<%= render partial: 'shared/poster', locals: { img_url: 'poster.png' } %>
 
-	<div class="row col-12 soluongsp">
-		<p><%= catalogues.first.products.length %> sản phẩm có sẵn</p>
-	</div>
-	<div class="row col-12 products">
-		<%= render @products %>
-		<%= will_paginate @products %>
+	<div class="row col-12 products-list">
+		<%= render 'products/products_list' %>
 	</div>	
 
 </div>

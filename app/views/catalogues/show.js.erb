@@ -1,0 +1,2 @@
+$("div[id^='sub-catalogues-list-']").html("")
+$("#sub-catalogues-list-<%= @catalogue.id %>").html("<%= escape_javascript(render partial: 'sub_catalogues_list', locals: { catalogue: @catalogue} ) %>")

@@ -1,26 +1,29 @@
 class OrderItemsController < ApplicationController
-  def create
-  	@order = current_order
+  before_action :set_order
+
+  def create  	
   	@order_item = @order.order_items.new(order_item_params)
   	@order.save
   	session[:order_id] = @order.id
   end
 
   def update
-  	@order = current_order
   	@order_item = @order.order_items.find_by(id: params[:id])
   	@order_item.update_attributes(order_item_params)
   	@order_items = @order.order_items
   end
 
-  def destroy
-  	@order = current_order
+  def destroy  	
   	@order_item = @order.order_items.find_by(id: params[:id])
   	@order_item.destroy
   	@order_items = @order.order_items
   end
 
   private
+
+    def set_order
+      @order = current_order
+    end
 
   	def order_item_params
   		params.require(:order_item).permit(:quantity, :product_id)

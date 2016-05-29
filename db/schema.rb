@@ -15,8 +15,9 @@ ActiveRecord::Schema.define(version: 20160522221037) do
 
   create_table "catalogues", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "parent_id",  default: 0
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "order_items", force: :cascade do |t|
@@ -52,26 +53,17 @@ ActiveRecord::Schema.define(version: 20160522221037) do
 
   create_table "products", force: :cascade do |t|
     t.string   "name"
+    t.string   "description"
     t.integer  "price"
     t.integer  "quantity"
-    t.integer  "sub_catalogue_id"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.boolean  "active",       default: true
     t.string   "picture"
-    t.string   "description"
-    t.boolean  "active"
-  end
-
-  add_index "products", ["sub_catalogue_id"], name: "index_products_on_sub_catalogue_id"
-
-  create_table "sub_catalogues", force: :cascade do |t|
-    t.string   "name"
     t.integer  "catalogue_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
-  add_index "sub_catalogues", ["catalogue_id"], name: "index_sub_catalogues_on_catalogue_id"
+  add_index "products", ["catalogue_id"], name: "index_products_on_catalogue_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "name"

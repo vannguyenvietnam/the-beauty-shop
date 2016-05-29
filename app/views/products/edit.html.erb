@@ -1,5 +1,5 @@
 <div class="form">
-	<h3 class="text-center">Add new product</h3>
+	<h3 class="text-center">Update product</h3>
 
 	<%= form_for(@product, html: { multipart: true }) do |f| %>
 	  <%= render partial: 'shared/error_messages', locals: { object: f.object } %>
@@ -36,5 +36,5 @@
     if (size_in_megabytes > 5) {
       alert('Maximum file size is 5MB. Please choose a smaller file.');
     }
-  });  
+  });
 </script>

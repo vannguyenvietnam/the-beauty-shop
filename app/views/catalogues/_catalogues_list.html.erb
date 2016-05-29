@@ -1,0 +1,9 @@
+<h3 class="text-center">Catalogues list</h3>
+
+<div id="new-form" style="padding-bottom: 20px;">
+	<%= render partial: 'new_form', locals: { parent_id: 0, placeholder: 'New catalogue' } %>
+</div>
+
+<div class="catalogues-list">
+	<%= render @catalogues %>
+</div>

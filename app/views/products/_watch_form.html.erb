@@ -10,4 +10,6 @@
 		  <%= f.submit "Watch", class: "btn btn-default" %>
 		<% end %>
 	<% end %>
+<% else %>
+	<%= link_to "Watch", login_path, class: "btn btn-default background-grey" %>	
 <% end %>

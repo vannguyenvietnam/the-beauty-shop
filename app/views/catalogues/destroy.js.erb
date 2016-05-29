@@ -1,0 +1,5 @@
+$("#catalogue-<%= @cata_id %>").html("")
+
+<% if @parent_id == 0 %>
+	$("nav.navbar").html("<%= escape_javascript(render 'layouts/navbar') %>")
+<% end %>

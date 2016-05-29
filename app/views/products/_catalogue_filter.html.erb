@@ -1,5 +1,0 @@
-<select name="catalogue">
-	<% @catalogues.each do |cata| %>
-		<option value="<%= cata.id %>"><%= link_to cata.name, catalogue_path(cata) %></option>
-	<% end %>
-</select>

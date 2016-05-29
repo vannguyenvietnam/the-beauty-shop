@@ -6,14 +6,14 @@ class ApplicationController < ActionController::Base
   include CataloguesHelper
   include SessionsHelper
   helper_method :current_order
-
+  
   def current_order
   	if !session[:order_id].nil?
   		Order.find_by(id: session[:order_id])
   	else
   		Order.new
   	end
-  end
+  end  
 
   private
 
@@ -24,6 +24,11 @@ class ApplicationController < ActionController::Base
         flash[:danger] = "Please log in"
         redirect_to login_url
       end
+    end
+    
+    # Confirms an admin user
+    def admin_user
+      redirect_to(root_url) unless current_user.admin?
     end
 
 end

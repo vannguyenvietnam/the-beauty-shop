@@ -5,8 +5,8 @@ class SubCataloguesController < ApplicationController
   end
  	
  	def show
- 		@sub_catalogue = SubCatalogue.find_by(id: params[:id])
-  	@sub_catalogues = @sub_catalogue.catalogue.sub_catalogues  	
+ 		@sub_catalogue = Catalogue.find_by(id: params[:id])
+  	@sub_catalogues = @sub_catalogue.parent.sub_catalogues  	
   	@products = @sub_catalogue.products.paginate(page: params[:page], per_page: 8)
  	end
 
