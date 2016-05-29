@@ -3,6 +3,7 @@
 		<% if logged_in? %>
 			<li><%= link_to "#{current_user.name} | ", user_path(current_user), class: "text-pink" %></li>
       <li><%= link_to "Log out | ", logout_path, method: "delete", class: 'text-pink' %></li>
+      <li><%= link_to("Add new product", new_product_path) if current_user.admin? %></li>
     <% else %>
       <li><%= link_to 'Log in | ', login_path, class: "text-pink" %></li>
       <li><%= link_to 'Sign up | ', signup_path, class: "text-pink" %></li>
