@@ -1,11 +1,11 @@
 <div class="row cata-form">
 	<%= form_for(@new_catalogue, remote: true) do |f| %>
-	<div class="col-9">      
-    <%= f.text_field :name, placeholder: placeholder %>     
+	<div class="col-lg-9">      
+    <%= f.text_field :name, placeholder: placeholder, class: "form-control" %>     
   </div> 
-  <div class="col-3">   
+  <div class="col-lg-3">   
   	<%= f.hidden_field :parent_id, value:  parent_id %>    
-    <%= f.submit "Create", class: "btn btn-primary" %>         
+    <%= f.submit "Create", class: "link link-primary form-control" %>         
   </div> 
   <% end %>   
 </div>

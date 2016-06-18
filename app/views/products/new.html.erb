@@ -1,40 +1,9 @@
-<div class="form">
-	<h3 class="text-center">Add new product</h3>
+<% provide(:title, current_user.name) %>
 
-	<%= form_for(@product, html: { multipart: true }) do |f| %>
-	  <%= render partial: 'shared/error_messages', locals: { object: f.object } %>
+<% if current_user.admin? %>
+	<%= render 'users/admin_aside' %>
+<% end %>
 
-		<div id="catalogues">
-			<%= f.collection_select(:catalogue_id, @catalogues, :id, :name) %>			
-		</div>		
-		
-		<%= f.label :name %>
-	 	<%= f.text_field :name, placeholder: "Name..." %>
-
-	 	<%= f.label :description %>
-	 	<%= f.text_area :description, placeholder: "Description..." %>
-
-	 	<%= f.label :price %>
-	 	<%= f.number_field :price, value: 1, min: 1 %>
-
-	 	<%= f.label :quantity %>
-	 	<%= f.number_field :quantity, value: 1, min: 1 %>	  
-		
-	  <div style="margin-top: 10px;"><%= f.submit "Add", class: "btn btn-primary" %></div>
-
-	  <div class="picture">
-	  	<%= f.label :picture %>
-	    <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>	   
-	  </div>
-
-	<% end %>
+<div class="col-lg-9 user-page">
+	<%= render 'new_form' %>
 </div>
-
-<script type="text/javascript">
-  $('#product_picture').bind('change', function() {
-    var size_in_megabytes = this.files[0].size/1024/1024;
-    if (size_in_megabytes > 5) {
-      alert('Maximum file size is 5MB. Please choose a smaller file.');
-    }
-  });  
-</script>

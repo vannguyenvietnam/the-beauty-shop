@@ -1,58 +1,58 @@
-/**********************
-Tham khảo trên http://www.w3schools.com/css/css_rwd_intro.asp
-/**********************/
-/********** Basic Responsive layout **************/
-* {	box-sizing: border-box;}
-[class*="col-"] {
-	float: left;	
-}
-.row::after {
-	content: "";
-	clear: both;
-	display: block;
-}
-[class*="col-"] {width: 100%;} /* Màn hình nhỏ - Điện thoại*/
-@media only screen and (min-width: 600px) {
-	.col-1 {width: 8.33%;}
-	.col-2 {width: 16.66%;}
-	.col-3 {width: 25%;}
-	.col-4 {width: 33.33%;}
-	.col-5 {width: 41.66%;}
-	.col-6 {width: 50%;}
-	.col-7 {width: 58.33%;}
-	.col-8 {width: 66.66%;}
-	.col-9 {width: 75%;}
-	.col-10 {width: 83.33%;}
-	.col-11 {width: 91.66%;}
-	.col-12 {width: 100%;}
-
-/******** For Menu ****************/
-	.navbar {		
-		height: 45px;
-		line-height: 45px;		
-	}		
-	.top-menu li, .cart li {
-		display: inline-block;	
-	}	
-	.top-menu a {padding: 0px 10px;}
-	.menu {		
-		box-shadow: 1px 1px 2px #bbb;
-		margin-right: 10px;	
-		min-height: 285px;		
-	}
-	.form-control {
-		width: 100%;
-	}
-}
-
-/**************** Basic Layout *************/
-header, nav, footer {  display: block; }
+/*********** Basic ***************/
 html { font-family: "Lucida Sans", sans-serif; }
-body {
-	margin-top: 0;
-	padding: 0;
+body { margin: auto; }
+
+img {
+	width: 100%;	
+	margin: 0px;
+	padding: 0px;
 }
-.wrapper { 	width: 100%; }
+h1 { 
+	margin-top: 0; 
+	color: #666;
+}
+h4, h5, h6, label { color: #666 !important; }
+h2, h3 {
+	color: #ff4081 !important;
+	margin-top: 0;	
+}
+h4 { color: #666; }
+a {text-decoration: none;}
+input[type=submit] { box-shadow: none; }
+fieldset {
+	border: none;
+	padding-bottom: 0;
+	padding-top: 2px;
+	margin-top: 12px;
+}
+
+input, textarea, select {
+	width: 100%;		
+}
+input, select {height: 22px;}
+
+p, label, span, a, input, legend, select { 
+	font-size: 11px !important;	
+	color: #666;
+}
+
+footer {		
+	color: #666;
+	text-align: center;
+	font-size: 11px;
+	height: 45px;
+	line-height: 45px;	
+	border-top: 1px solid #bbb;
+	margin-top: 30px;
+}
+
+.remove-padding { padding: 0 !important; }
+.remove-padding-right { padding-right: 0 !important; }
+.remove-padding-left { padding-left: 0 !important; }
+.adjust-padding-left { padding-left: 5px !important; }
+/*********** End basic ************/
+
+/*********** Header ***************/
 header {
 	background-image: url(asset-path("banner.jpg"));
 	background-clip: border-box;
@@ -72,7 +72,9 @@ span.slogan {
 	font-weight: lighter;
 	font-size: 15px;
 }
+/************** End header ************/
 
+/************** Cart text *************/
 li a.text-pink { color: #ff4081; }
 div.cart {
 	border: 1px solid #fff;
@@ -81,108 +83,55 @@ div.cart {
 }
 ul.cart {text-align: right;}
 li.cart {margin-right: 20px;}
+/************* End cart text **********/
 
-.content, .poster {border: 1px solid #fff;}
-
-img {
-	width: 100%;	
-	margin: 0px;
-	padding: 0px;
-}
-h1 {
-	margin-top: 0;
-	color: #666;
-}
-h2, h3 {
-	color: #ff4081;
-	margin-top: 0;	
-}
-h4 { color: #666; }
-a {text-decoration: none;}
-input[type=submit] { box-shadow: none; }
-fieldset {
-	border: none;
-	padding-bottom: 0;
-	padding-top: 2px;
-	margin-top: 12px;
-}
-fieldset.first {margin-top: 0;}
-legend { font-size: 11px; }
-input, textarea {
-	width: 100%;	
-	font-size: 11px;	
-}
-input, select {height: 22px;}
-select {
-	font-size: 11px;
-	width: 100%;
-}
-p, label, span { 
-	font-size: 11px;	
-	color: #666;
-}
-
-footer {		
-	color: #666;
-	text-align: center;
-	font-size: 11px;
-	height: 45px;
-	line-height: 45px;	
-	border-top: 1px solid #bbb;
-	margin-top: 30px;
-}
-
-/********** For flash ******************/
+/************* Flash ******************/
 .flash {
-	max-height: 30px;
-	line-height: 30px;
 	text-align: center;	
 }
-.alert {		
-	font-size: 11px;
-	color: #666;
+
+/************ End flash ****************/
+
+/************ Poster *******************/
+#poster { 
+	margin: 0;
+	padding: 0;
 }
-.alert-success {
-	color: #4caf50;	
-	background-color: #c8e6c9;
-}
-.alert-danger {
-	color: #f44336;
-	background-color: #ffcdd2;
-}
-/********** For information row ***************/
-.infor {
+/**************** End Poster *****************/
+
+/************* Information row ***************/
+#info {
 	border-top: 1px solid #bbb;
-	margin-top: 40px;
+	margin: 0;
+	margin-top: 20px;
 }
 .box {
-	text-align: center;
-	padding: 0px 20px;
+	text-align: center;	
 }
 p.us {
 	text-align: left;
 	color: #666;
 }
+/************* End information row ************/
 
 /******** For displaying products *************/
-.product {
-	width: 24%;
+.product {	
 	min-height: 150px;
-	border: 1px solid #ddd;
-	float: left;
-	padding: 10px;
+	border: 1px solid #ddd;	
 	border-radius: 5px;
-	box-shadow: 1px 1px 2px #bbb;
-	margin: 3px ;
+	box-shadow: 1px 1px 2px #bbb;	
+	padding: 10px;
+	margin-top: 5px;	
 }
-.sanpham { max-height: 50%;	}
+div[id^="product-"] { padding: 2.5px; }
+.pro-image { max-height: 50%;	}
 
 p.tensp {  height: 30px;}
 
 p.giasp, .soluongsp p { color: #444; }
-p.giasp {
-	margin-top: 10px;
-	margin-bottom: 5px;
+
+div.pagination { 
+	margin-bottom: 0 !important; 	
 }
 
 /**************** For shopping cart *****************/
@@ -211,12 +160,8 @@ p.giasp {
 }
 .form { max-height: 100%; }
 
-#order_item_quantity {	
-	height: 22px;
-	border: 1px solid #bbb;	
-	width: 90%;
-	position: relative;
-	top: -1.25px;
+#order_item_quantity {		
+	border: 1px solid #bbb;		
 }
 
 .customer-service {
@@ -245,16 +190,15 @@ p.giasp {
 	line-height: 22px;
 	margin-bottom: 11px;	
 	span {
-		margin-left: 0px;	
+		margin-left: 20px;
 		display: inline-block;
-		position: relative;
-		top: -7px;			
+				
 	}
 	input { 
 		display: inline-block;
 		width: auto;		
-		margin-left: 0;
-		margin-top: -1px;
+		margin-left: 0 !important;
+		margin-top: 0 !important;
 	}
 }
 .user { 
@@ -263,53 +207,12 @@ p.giasp {
 	line-height: 22px;
 	border-bottom: 1px solid #bbb;
 }
+/********** End user **********/
 
-/*********** For button and link ***********/
-.btn {
-	color: #ff4081;
-	font-size: 11px;
-	text-align: center;	
-	width: 100%;
-	border: none;	
-	display: block;
-	height: 22px;	
-}
-.btn-default:hover {text-decoration: underline;}
-.btn-primary {
-	background-color: #ff4081;
-	color: #fff;
-}
-.btn-primary:hover {
-	background-color: #ccc;
-	color: #ff4081;
-}
-.button {
-	width: 150px;
-	height: 33px;		
-}
-.btn-21 { height: 21px; }
-
-.link {
-	text-decoration: none;
-	display: block;	
-	font-size: 11px;	
-}
-.link-primary {	
-	background-color: #ff4081;
-	color: #fff;	
-	text-align: center;
-	padding: 5px 0px;
-}
-.link-primary:hover, .link-primary:active {
-	background-color: #ccc;
-	color: #ff4081;
-}
-.link-inline { 
-	display: inline-block;
-	color: #ff4081;
-}
-.link-inline:hover { text-decoration: underline; }
-.background-grey { background-color: #ccc; }
+/**************** For Admin **************/
+.quan-ly { margin-top: 30px; }
+input[name="giaSp"] { width: 49%; }
+/************** End admin ************/
 
 /********** For text ******************/
 .text { font-size: 11px; }
@@ -318,35 +221,69 @@ p.giasp {
 .text-center { text-align: center; }
 .text-pink { color: #ff4081; }
 .text-green { color: green; }
-.text-hover:hover { text-decoration: underline; }
+.text-hover:hover { color: #ff4081; }
 .text-bold { font-weight: bold; }
 .text-grey { color: #666; }
 .border-bottom { border-bottom: 1px solid #bbb; }
+.active { color: #ff4081 !important; }
+/*************** End text ****************/
 
-/**************** For Admin **************/
-.quan-ly { margin-top: 30px; }
-input[name="giaSp"] { width: 49%; }
-
-/**************** For top menu *************/
-.navbar {	
-	text-align: center;	
-	//border-radius: 5px;
-	border-bottom: 1px solid #bbb;
+/********* Links ***********/
+.link {
+	text-decoration: none;
+	display: block;		
+	text-align: center;
+	padding: 5px 0px;
 }
-.top-menu a {
-	padding: 3px 10px;	
-	font-weight: bolder;
+input.link { 
+	padding: 0; 	
+	border: none;
 }
-.top-menu a:hover { color: #ff4081; }
-li a.active { color: #ff4081; }
+.link-default {
+	background-color: #ccc;
+	color: #ff4081;		
+}
+.link-primary {	
+	background-color: #ff4081 !important;
+	color: #fff !important;		
+}
+.link-inline { 
+	display: inline-block;
+	color: #ff4081;
+}
+.link-primary:hover {
+	background-color: #ccc;
+	color: #ff4081;
+	text-decoration: underline;
+}
+.link-inline:hover, .link-default:hover { 
+	color: #ff4081;
+	text-decoration: underline; 
+}
+.link-control { 
+	height: 34px; 
+	padding: 0;
+	line-height: 34px;
+}
+/********** End links *****************/
 
-/*********** For sub menu ****************/
-.menu {
+/**************** Navbar *************/
+.navbar {
+	margin-bottom: 0px !important;
+}
+
+/*********** End navbar ************/
+
+/*********** Sub menu ****************/
+#aside {
+	padding-right: 0;	
+}
+.aside-menu {
 	box-shadow: 1px 1px 0px #bbb;	
-	background-color: #eee;
-	padding: 15px 20px;
+	background-color: #eee;	
 	border-radius: 5px;
 	margin-bottom: 5px;
+	padding: 15px;	
 }
 .sub-menu a {
 	border-bottom: 1px solid #ccc;	
@@ -356,48 +293,79 @@ li a.active { color: #ff4081; }
 }
 .sub-menu li.last a {border-bottom: none;}
 .sub-menu a:hover { color: #ff4081; }
+/************** End sub menu ***********/
 
-/************ For nav *************/
-.nav {
+/************ For menu *************/
+.menu {
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
 }
-.nav a {
+.menu a {
 	display: block;
 	text-decoration: none;	
 	font-size: 11px;
 	color: #666;	
 	font-weight: normal;	
 }
-
-/************ Inline nav ***********/
-.nav-inline li { display: inline-block;	}
-ul.nav-inline li {
+.menu-inline li { display: inline-block;	}
+ul.menu-inline li {
 	height: 100%;
 	line-height: 100%;		
 }
-ul.nav-inline a {
+ul.menu-inline a {
 	font-weight: 100;
 	font-size: 10px;
 }
-ul.nav-inline a:hover { text-decoration: underline; }
+ul.menu-inline a:hover { text-decoration: underline; }
+/*************** End menu *****************/
 
-/********** For pagination **********/
-.pagination {	
-	clear: both;	
-	width: 100%;
-	display: block;
-	padding-top: 30px;	
-	text-align: center;
-	font-size: 15px;
+/*************** Braintree ****************/
+.helper-text {
+  color: #8A6D3B;
+  font-size: 12px;
+  margin-top: 5px;
+  height: 12px;
+  display: block;
 }
-.pagination span { font-size: 15px; }
-.pagination ul { list-style-type: none;	}
-.pagination ul li { display: inline-block; }
-.pagination a { color: #666; }
-.pagination em.current {
-	color: #ff4081;
-	font-style: normal;
+
+/* Braintree Hosted Fields styling classes*/
+#card-number.braintree-hosted-fields-focused {
+  border-color: #777;
 }
+
+#card-number.braintree-hosted-fields-invalid {
+  border-color: tomato;
+}
+#card-number.braintree-hosted-fields-valid {
+  border-color: limegreen;
+}
+#expiration-month.braintree-hosted-fields-focused {
+  border-color: #777;
+}
+
+#expiration-month.braintree-hosted-fields-invalid {
+  border-color: tomato;
+}
+#expiration-month.braintree-hosted-fields-valid {
+  border-color: limegreen;
+}
+#expiration-year.braintree-hosted-fields-focused {
+  border-color: #777;
+}
+
+#expiration-year.braintree-hosted-fields-invalid {
+  border-color: tomato;
+}
+#expiration-year.braintree-hosted-fields-valid {
+  border-color: limegreen;
+}
+/* Paypal */
+#braintree-paypal-loggedin {
+	max-width: 100% !important;
+	border: 1px solid rgb(209, 212, 214);
+	border-radius: 4px;
+}
+/************** End Braintree ****************/
+
 /*************** The end ******************/

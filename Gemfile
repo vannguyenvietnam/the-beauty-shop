@@ -13,6 +13,9 @@ gem 'coffee-rails', '4.1.0'
 gem 'responders', '~> 2.0'
 # For using active_link_to
 gem 'active_link_to'
+# For braintree
+gem 'braintree', '~> 2.47'
+gem 'dotenv', '~> 2.0'
 
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
@@ -35,7 +38,7 @@ gem 'bcrypt', '3.1.7'
 gem 'faker', '1.4.2'
 # For pagination
 gem 'will_paginate',           '3.0.7'
-# gem 'bootstrap-will_paginate', '0.0.10'
+gem 'bootstrap-will_paginate', '0.0.10'
 
 # For upload image
 gem 'carrierwave',             '0.10.0'

@@ -1,9 +1,9 @@
-<div class="row user"> 
-	<div class="col-3"><%= link_to user.name, user_path(user), class: 'text text-grey' %></div>
-	<div class="col-3"><span class="text"><%= user.email %></span></div>
-	<div class="col-6">
+<div class="user"> 
+	<div class="col-lg-3"><%= link_to user.name, user_path(user), class: 'text text-grey text-hover' %></div>
+	<div class="col-lg-3"><span class="text"><%= user.email %></span></div>
+	<div class="col-lg-6">
 	  <% if current_user.admin? && !current_user?(user) %>
-	  	<%= link_to "delete", user, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-default text-left' %>
+	  	<%= link_to "delete", user, method: :delete, data: { confirm: "You sure?" }, class: 'text-pink text-hover text-left' %>
 	  <% end %>
   </div>
 </div>

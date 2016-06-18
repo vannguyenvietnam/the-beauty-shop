@@ -1,8 +1,8 @@
 <% provide(:title, 'Reset password') %>
 
 <div class="row">
-  <div class="col-12">
-    <div class="user-form">
+  <div class="col-lg-6 col-lg-offset-3">
+    
       <h1 class="text-center">Reset password</h1>
 
       <%= form_for(@user, url: password_reset_path(params[:id])) do |f| %>
@@ -16,8 +16,8 @@
         <%= f.label :password_confirmation, "Confirmation" %>
         <%= f.password_field :password_confirmation, class: 'form-control' %>
 
-        <%= f.submit "Update password", class: "btn btn-primary" %>
+        <%= f.submit "Update password", class: "link link-primary" %>
       <% end %>
-    </div>
+    
   </div>
 </div>

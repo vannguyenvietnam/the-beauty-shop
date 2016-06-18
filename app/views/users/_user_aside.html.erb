@@ -1,5 +1,5 @@
-<aside class="col-3">
-	<section class="menu user-aside">
+<aside class="col-lg-3" id="aside">
+	<section class="aside-menu">
 		<h3><%= @user.name.upcase %></h3>		
 		<ul class="nav sub-menu">			
 			<li><%= link_to "Watching list", watching_user_path(@user), remote: true %></li>

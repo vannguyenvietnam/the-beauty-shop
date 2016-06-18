@@ -1,16 +1,16 @@
 <div class="row" id="catalogue-<%= sub.id %>" style="margin-top: 10px;"> 
-	<div class="col-11 row">
+	<div class="col-lg-11">
 		<%= form_for(sub, remote: true) do |f| %>
-		<div class="col-10">      
-      <%= f.text_field :name %>     
+		<div class="col-lg-10">      
+      <%= f.text_field :name, class: "form-control" %>     
     </div> 
-    <div class="col-2">   
+    <div class="col-lg-2">   
     	<%= f.hidden_field :parent_id, value:  sub.parent_id %>    
-      <%= f.submit "Update", class: "btn btn-default" %>         
+      <%= f.submit "Update", class: "link link-inline form-control" %>         
     </div> 
     <% end %>   
 	</div>
-	<div class="col-1">
-	  <%= link_to "Delete", sub, method: :delete, data: { confirm: "You sure?" }, remote: true, class: 'btn btn-default' %>
+	<div class="col-lg-1 remove-padding-left">
+	  <%= link_to "Delete", sub, method: :delete, data: { confirm: "You sure?" }, remote: true, class: 'link link-inline link-control' %>
   </div>
 </div>

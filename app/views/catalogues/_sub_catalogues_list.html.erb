@@ -1,4 +1,9 @@
-<h4>Sub catalogues list</h4>
+<div class="row">
+	<div class="col-lg-11">
+		<h4 id="test">Sub catalogues list</h4>
+	</div>
+	<div class="col-lg-1"><button class="close">x</button></div>
+</div>
 
 <div id="new-form">
 	<%= render partial: 'new_form', locals: { parent_id: @catalogue.id, placeholder: 'New sub catalogue' } %>
@@ -9,3 +14,9 @@
 		<%= render partial: 'sub_catalogue', locals: { sub: sub } %>
 	<% end %>
 </div>
+
+<script type="text/javascript">
+	$(document).ready(function () {	  
+		$('.close').click(function () { $(this).parent().parent().parent().html(""); });
+	});
+</script>

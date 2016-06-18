@@ -1,6 +1,8 @@
 class Order < ActiveRecord::Base  
   belongs_to :order_status
   has_many :order_items
+  has_one :delivery, dependent: :destroy
+
   before_create :set_order_status
   before_save :update_subtotal
   before_save :update_tax_shipping_total

@@ -2,6 +2,7 @@ class ProductsController < ApplicationController
   before_action :logged_in_user, only: [:create, :update, :destroy]
   before_action :admin_user, only: [:create, :update, :destroy]  
   before_action :set_catalogues, only: [:new, :create, :edit, :update]
+  skip_before_action :verify_authenticity_token, only: [:create]
 	respond_to :html, :js
     
   def index    

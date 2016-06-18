@@ -1,4 +1,4 @@
-<div class="user-form">
+<div class="col-lg-8 col-lg-offset-2">
 	<h3 class="text-center">Update your profile</h3>
 
 	<%= form_for @user, remote: true do |f| %>
@@ -16,6 +16,6 @@
 		<%= f.label :password_confirmation, "Confirmation" %>
 		<%= f.password_field :password_confirmation, class: 'form-control' %>
 
-		<%= f.submit "Save changes", class: "btn btn-primary" %>
+		<%= f.submit "Save changes", class: "link link-primary form-control" %>
 	<% end %>		
 </div>

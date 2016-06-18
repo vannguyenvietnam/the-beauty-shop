@@ -1,13 +1,13 @@
-<div class="col-3">
-	<div class="menu">
+<aside class="col-lg-3" id="aside">	
+	<section class="aside-menu">
 		<h3><%= sub_catalogues[0].parent.name.upcase %></h3>
-		<ul class="nav sub-menu">
+		<ul class="menu sub-menu">
 			<% for i in 0..(sub_catalogues.length - 2) do  %>
 				
 				<li><%= link_to sub_catalogues[i].name, sub_catalogue_path(sub_catalogues[i]), remote: true, id: "sub-cata-#{sub_catalogues[i].id}" %></li>			
 				
 			<% end %>
 				<li class="last"><%= link_to sub_catalogues.last.name, sub_catalogue_path(sub_catalogues.last), remote: true, id: "sub-cata-#{sub_catalogues.last.id}" %></li>
-		</ul>
-	</div>				
-</div>
+		</ul>		
+	</section>			
+</aside>

@@ -1,0 +1,99 @@
+<div class="col-lg-6 col-lg-offset-3">
+	<h2 class="text-center text-pink">Place order</h2>
+
+	<%= form_tag("/placements", method: "post", id: "payment-form") do %>
+		<section id="customer-info">
+			<h5 style="border-bottom: 1px solid #bbb; margin-bottom: 15px; margin-top: 30px;">Customer's infomation</h5>
+
+			<input class="form-control" id="name" name="name" type="text" placeholder="Name ... ">
+			<input class="form-control" id="email" name="email" type="email" placeholder="email ... ">
+			<input class="form-control" id="phone" name="phone" type="tel" placeholder="phone ... ">			
+			<textarea class="form-control" id="address" name="address" placeholder="address ... "></textarea>
+		</section>
+
+	  <section id="payment-method">
+	  	<h5 style="border-bottom: 1px solid #bbb; margin-bottom: 15px; margin-top: 30px;">Payment mehthod</h5>   
+
+     	<div class="form-group">
+        <!--  Hosted Fields div container -->
+        <div id="paypal-container"></div>        
+      </div>
+  		<div class="form-group">
+        <label class="control-label">Card Number</label>
+        <!--  Hosted Fields div container -->
+        <div class="form-control" id="card-number"></div>
+        <span class="helper-text"></span>
+      </div>
+      <div class="form-group">
+        <div class="row">
+          <label class="control-label col-xs-12">Expiration Date</label>
+          <div class="col-xs-6">
+            <!--  Hosted Fields div container -->
+            <div class="form-control" id="expiration-month"></div>
+          </div>
+          <div class="col-xs-6">
+            <!--  Hosted Fields div container -->
+            <div class="form-control" id="expiration-year"></div>
+          </div>
+      	</div>     
+      </div>      
+	  </section>
+
+	  <button class="link link-primary form-control" type="submit">Place order</button>
+	<% end %>
+</div>
+
+<script src="https://js.braintreegateway.com/js/braintree-2.24.1.min.js"></script>
+
+<script>
+  (function () {  	
+   	var checkout = new Demo({
+      formID: 'payment-form'
+    });
+
+    var client_token = "<%= @client_token %>";
+    braintree.setup(client_token, "custom", {
+      id: "payment-form",
+      hostedFields: {
+        number: {
+          selector: "#card-number",
+          placeholder: "4111111111111111"
+        },        
+        expirationMonth: {
+          selector: "#expiration-month",
+          placeholder: "MM"
+        },
+        expirationYear: {
+          selector: "#expiration-year",
+          placeholder: "YY"
+        },
+        onFieldEvent: function (event) {
+			    if (event.type === 'focus') {
+			      // Handle focus
+			    } else if (event.type === 'blur') {
+			      // Handle blur
+			    } else if (event.type === 'fieldStateChange') {
+			      // Handle a change in validation or card type
+			      console.log(event.isValid); // true|false
+			      if (event.card) {
+			        console.log(event.card.type);
+			        // visa|master-card|american-express|diners-club|discover|jcb|unionpay|maestro
+			      }
+			    }
+			  }
+      },
+      paypal: {
+		    container: "paypal-container",
+		    onSuccess: function (obj) {
+		    	alert("success");
+		    }
+		  },
+		  onPaymentMethodReceived: function (obj) {
+	      alert(obj.nonce);
+	    },
+	    onError: function (obj) {
+
+	    }
+    });    
+  })();
+</script>

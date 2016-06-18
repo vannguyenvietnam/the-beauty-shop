@@ -1,59 +1,59 @@
-<div id="product-<%= product.id %>">
+<div class="col-lg-3" id="product-<%= product.id %>">	
 	<div class="product">
-		<div class="sanpham">
+		<div class="pro-image">
 			<%= image_tag(product.picture.url, alt: "Product") if product.picture? %>
 			<%= image_tag('products/1.jpg', alt: "Product") unless product.picture? %>
-			<p class="tensp"><%= product.name %></p>				
+			<p class="pro-name"><%= product.name %></p>				
 		</div>		
 		
 		<div class="row">
-			<div class="col-6">
+			<div class="col-lg-6">
 				<p class="giasp">VND <%= product.price %></p>	
 			</div>
-			<div class="col-6">
+			<div class="col-lg-6">
 				<p class="text text-right">ID: <%= product.id %></p>	
 			</div>
 		</div>	
 
 		<% if logged_in? && current_user.admin? %>
-			<div class="row" style="margin-top: 7px">
-				<div class="col-6">
-					<%= link_to "Xem chi tiết", product_path(product), class: 'btn btn-default text-left' %>
-				</div>	
-				<div class="col-6" id="watch-form-<%= product.id %>">
+			<div class="row">				
+				<div class="col-lg-5 remove-padding-right text-center" id="watch-form-<%= product.id %>">
 					<%= render partial: 'products/watch_form', locals: { product: product } %>
 				</div>		
+				<div class="col-lg-7">
+					<%= link_to "Xem chi tiết", product_path(product), class: 'link link-primary form-control' %>
+				</div>	
 			</div>
-			<div class="row" style="margin-top: 7px">
-				<div class="col-6">
-					<%= link_to "Update", edit_product_path(product), class: 'btn btn-default text-left' %>
+			<div class="row">
+				<div class="col-lg-5 remove-padding-right text-center">
+					<%= link_to "Update", edit_product_path(product), class: 'form-control' %>
 				</div>	
 
-				<div class="col-6" id="watch-form-<%= product.id %>">
-					<%= link_to "Delete", product, method: :delete, data: { confirm: "You sure?" }, remote: true, class: 'btn btn-default text-right' %>
+				<div class="col-lg-7 text-center" id="watch-form-<%= product.id %>">
+					<%= link_to "Delete", product, method: :delete, data: { confirm: "You sure?" }, remote: true, class: 'form-control' %>
 				</div>		
 			</div>
 
 		<% else %>
-			<div class="row" style="height: 22px">		
+			<div class="row">		
 				<%= form_for current_order.order_items.new, remote: true do |f| %>			
-					<div class="col-4">							
-			      <%= f.number_field :quantity, value: 1, min: 1 %>	          
-			      <%= f.hidden_field :product_id, value: product.id %>	          
+					<div class="col-lg-5 text-center">							
+			      <%= f.number_field :quantity, value: 1, min: 1, class: 'form-control' %>     	          
 			    </div>
-			    <div class="col-8">	 
-			    	<%= f.submit "Them vao gio hang", class: "btn btn-primary btn-21" %>	               
+			    <div class="col-lg-7 remove-padding-left">
+			    	<%= f.hidden_field :product_id, value: product.id %>	 
+			    	<%= f.submit "Them vao gio hang", class: "link link-primary form-control" %>             
 			    </div>    
 		    <% end %>       
 		 	</div>		
-			<div class="row" style="margin-top: 7px">
-				<div class="col-6">
-					<%= link_to "Xem chi tiết", product_path(product), class: 'btn btn-default text-left' %>
+			<div class="row">
+				<div class="col-lg-5 text-center" id="watch-form-<%= product.id %>">
+					<%= render partial: 'products/watch_form', locals: { product: product } %>
 				</div>	
 
-				<div class="col-6" id="watch-form-<%= product.id %>">
-					<%= render partial: 'products/watch_form', locals: { product: product } %>
-				</div>		
+				<div class="col-lg-7 remove-padding-left text-center">
+					<%= link_to "Xem chi tiết", product_path(product), class: 'form-control' %>
+				</div>						
 			</div>
 		<% end %>	
 	</div>
