@@ -11,30 +11,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160610185217) do
+ActiveRecord::Schema.define(version: 20160622160014) do
 
-  create_table "catalogues", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "parent_id",  default: 0
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+  enable_extension "uuid-ossp"
+
+  create_table "cat_products", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
+    t.uuid     "catalogue_id"
+    t.uuid     "product_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
-  create_table "deliveries", force: :cascade do |t|
-    t.string   "email"
+  add_index "cat_products", ["catalogue_id", "product_id"], name: "index_cat_products_on_catalogue_id_and_product_id", unique: true, using: :btree
+  add_index "cat_products", ["catalogue_id"], name: "index_cat_products_on_catalogue_id", using: :btree
+  add_index "cat_products", ["product_id"], name: "index_cat_products_on_product_id", using: :btree
+
+  create_table "catalogues", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
     t.string   "name"
-    t.string   "address"
-    t.string   "phone"
-    t.integer  "order_id"
+    t.uuid     "parent_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_index "deliveries", ["order_id"], name: "index_deliveries_on_order_id"
-
-  create_table "order_items", force: :cascade do |t|
-    t.integer  "product_id"
-    t.integer  "order_id"
+  create_table "order_items", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
+    t.uuid     "product_id"
+    t.uuid     "order_id"
     t.integer  "unit_price"
     t.integer  "quantity"
     t.integer  "total_price"
@@ -42,42 +45,40 @@ ActiveRecord::Schema.define(version: 20160610185217) do
     t.datetime "updated_at",  null: false
   end
 
-  add_index "order_items", ["order_id"], name: "index_order_items_on_order_id"
-  add_index "order_items", ["product_id"], name: "index_order_items_on_product_id"
+  add_index "order_items", ["order_id"], name: "index_order_items_on_order_id", using: :btree
+  add_index "order_items", ["product_id", "order_id"], name: "index_order_items_on_product_id_and_order_id", unique: true, using: :btree
+  add_index "order_items", ["product_id"], name: "index_order_items_on_product_id", using: :btree
 
-  create_table "order_statuses", force: :cascade do |t|
+  create_table "order_statuses", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "orders", force: :cascade do |t|
+  create_table "orders", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
     t.string   "subtotal"
     t.string   "tax"
     t.string   "shipping"
     t.integer  "total"
-    t.integer  "order_status_id"
+    t.uuid     "order_status_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
 
-  add_index "orders", ["order_status_id"], name: "index_orders_on_order_status_id"
+  add_index "orders", ["order_status_id"], name: "index_orders_on_order_status_id", using: :btree
 
-  create_table "products", force: :cascade do |t|
+  create_table "products", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
     t.integer  "price"
     t.integer  "quantity"
-    t.boolean  "active",       default: true
+    t.boolean  "active",      default: true
     t.string   "picture"
-    t.integer  "catalogue_id"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
-  add_index "products", ["catalogue_id"], name: "index_products_on_catalogue_id"
-
-  create_table "users", force: :cascade do |t|
+  create_table "users", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
     t.string   "password_digest"
@@ -89,17 +90,17 @@ ActiveRecord::Schema.define(version: 20160610185217) do
     t.datetime "updated_at",                      null: false
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
 
-  create_table "watchings", force: :cascade do |t|
-    t.integer  "product_id"
-    t.integer  "user_id"
+  create_table "watchings", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
+    t.uuid     "product_id"
+    t.uuid     "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_index "watchings", ["product_id", "user_id"], name: "index_watchings_on_product_id_and_user_id", unique: true
-  add_index "watchings", ["product_id"], name: "index_watchings_on_product_id"
-  add_index "watchings", ["user_id"], name: "index_watchings_on_user_id"
+  add_index "watchings", ["product_id", "user_id"], name: "index_watchings_on_product_id_and_user_id", unique: true, using: :btree
+  add_index "watchings", ["product_id"], name: "index_watchings_on_product_id", using: :btree
+  add_index "watchings", ["user_id"], name: "index_watchings_on_user_id", using: :btree
 
 end

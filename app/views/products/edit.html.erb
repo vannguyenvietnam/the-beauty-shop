@@ -1,12 +1,29 @@
+<%= render 'layouts/flash' %>
+
 <div class="col-lg-6 col-lg-offset-3">
 	<h3 class="text-center">Update product</h3>
 
 	<%= form_for(@product, html: { multipart: true }) do |f| %>
 	  <%= render partial: 'shared/error_messages', locals: { object: f.object } %>
 
-		<div id="catalogues">
-			<%= f.collection_select(:catalogue_id, @catalogues, :id, :name) %>			
-		</div>		
+		<div class="row">
+			<div id="catalogues" class="col-lg-6">
+				<div id="catalogue_id" class="dropdown">
+					<button class="form-control dropdown-toggle" type="button" data-toggle="dropdown">
+					 	<div class="float-left"><span id="cat-name"><%= @sub_catalogue.parent.name %></span></div>
+					  <div class="float-right"><span class="caret"></span></div>
+				  </button>
+				  <ul class="dropdown-menu" style="width: 100%;">
+				  	<% catalogues.each do |c| %>
+							<li><%= link_to c.name, getsubs_catalogue_path(c), remote: true %></li>
+						<% end %>				    
+				  </ul>
+				</div>
+			</div>
+			<div id="sub-catalogues-select" class="col-lg-6">
+				<%= render partial: 'sub_catalogues', locals: { sub_catalogues: @sub_catalogue.parent.sub_catalogues, selected: @sub_catalogue } %>
+			</div>
+		</div>
 		
 		<%= f.label :name %>
 	 	<%= f.text_field :name, placeholder: "Name...", class: "form-control" %>
@@ -20,11 +37,16 @@
 	 	<%= f.label :quantity %>
 	 	<%= f.number_field :quantity, value: 1, min: 1, class: "form-control" %>	  
 		
-	  <div style="margin-top: 10px;"><%= f.submit "Add", class: "link link-primary" %></div>
+	  <div style="margin-top: 10px;"><%= f.submit "Update", class: "link link-primary form-control" %></div>
 
-	  <div class="picture">
-	  	<%= f.label :picture %>
-	    <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>	   
+	  <div class="row picture">
+	  	<div class="col-lg-3">
+	  		<%= render partial: 'products/product_image', locals: { product: @product } %>
+	  	</div>
+	  	<div class="col-lg-9">
+	  		<%= f.label :picture %>
+	    	<%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
+	  	</div>	  		   
 	  </div>
 
 	<% end %>
@@ -36,5 +58,11 @@
     if (size_in_megabytes > 5) {
       alert('Maximum file size is 5MB. Please choose a smaller file.');
     }
+  });
+  $('.dropdown').click(function() {
+  	$('.dropdown-menu').slideToggle();
+  });
+  $('.dropdown-menu').mouseleave(function() {
+  	$('.dropdown-menu').slideUp();
   });
 </script>

@@ -1,0 +1,31 @@
+<div class="row product-detail">
+	<div class="col-lg-4 product-image">
+		<%= render partial: 'products/product_image', locals: { product: product } %>
+	</div>	
+	<div class="col-lg-8 product-info">
+		<div class="row">
+			<div class="col-lg-3"><p>Ten san pham:</p></div>
+			<div class="col-lg-9"><p><%= product.name %></p></div>
+		</div>
+		<div class="row">
+			<div class="col-lg-3"><p>Gia:</p></div>
+			<div class="col-lg-9"><p><%= number_to_currency product.price %></p></div>
+		</div>
+		<div>			
+			<p>Thong tin san pham:</p>
+			<p><%= product.description %></p>
+		</div>
+
+		<div class="row">		
+			<%= form_for @order_item, remote: true do |f| %>			
+				<div class="col-lg-5">							
+	        <%= f.number_field :quantity, value: 1, min: 1, class: 'form-control' %>	          
+	        <%= f.hidden_field :product_id, value: product.id %>	          
+	      </div>
+	      <div class="col-lg-7">	 
+	      	<%= f.submit "Them vao gio hang", class: "link link-primary form-control" %>             
+	      </div>        
+      <% end %>       
+     </div>
+	</div>		
+</div>

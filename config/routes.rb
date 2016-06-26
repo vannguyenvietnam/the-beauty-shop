@@ -15,16 +15,19 @@ Rails.application.routes.draw do
     member do
       get :watchers
     end
-  end
+  end  
   
-  resources :products
-  resources :catalogues
-  resources :sub_catalogues
+  resources :catalogues do
+    member do
+      get :getsubs
+    end
+  end
+
+  resources :sub_catalogues, only: [:show]
   resource :cart, only: [:show]
-  resources :order_items, only: [:create, :update, :destroy]
-  resources :users
+  resources :order_items, only: [:create, :update, :destroy]  
   resources :password_resets, only: [:new, :create, :edit, :update]
-  resources :watchings
+  resources :watchings, only: [:new, :create, :destroy]
   resources :placements, only: [:new, :create]
 
   # The priority is based upon order of creation: first created -> highest priority.

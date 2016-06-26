@@ -1,14 +1,16 @@
-<div class="col-lg-12 search-form">
-</div>
+<div id="products-list">
+	<div class="col-lg-12 search-form">
+	</div>
 
-<div class="col-lg-12 soluongsp">
-	<p><%= @products.length %> sản phẩm</p>
-</div>
+	<div class="col-lg-12 soluongsp">
+		<p><%= products.length %> sản phẩm</p>
+	</div>
 
-<div class="col-lg-12 products">
-		
-	<%= render @products %>
-	<div style="clear: both;"></div>
-	<%= will_paginate @products %>
+	<div class="col-lg-12 products">
+			
+		<%= render products %>
+		<div style="clear: both;"></div>
+		<%= will_paginate products %>
 
-</div>
+	</div>
+</div>	

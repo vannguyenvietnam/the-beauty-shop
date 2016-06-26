@@ -1,0 +1,9 @@
+<% if sub_catalogues.nil? %>
+	<select class="form-control">
+		<option>Select sub catalogue</option>
+	</select>
+<% elsif selected.nil? %>
+	<%= select_tag 'sub_catalogue_id', options_from_collection_for_select(sub_catalogues, "id", "name"), class: "form-control" %>
+<% else %>
+	<%= select_tag 'sub_catalogue_id', options_from_collection_for_select(sub_catalogues, "id", "name", selected.id ), class: "form-control" %>
+<% end %>

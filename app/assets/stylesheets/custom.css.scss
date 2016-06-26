@@ -1,3 +1,6 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
 /*********** Basic ***************/
 html { font-family: "Lucida Sans", sans-serif; }
 body { margin: auto; }
@@ -27,11 +30,10 @@ fieldset {
 }
 
 input, textarea, select {
-	width: 100%;		
+	width: 100%;			
 }
-input, select {height: 22px;}
 
-p, label, span, a, input, legend, select { 
+p, label, span, a, input, legend, select, textarea { 
 	font-size: 11px !important;	
 	color: #666;
 }
@@ -50,6 +52,9 @@ footer {
 .remove-padding-right { padding-right: 0 !important; }
 .remove-padding-left { padding-left: 0 !important; }
 .adjust-padding-left { padding-left: 5px !important; }
+
+.float-right { float: right; }
+.float-left { float: left; }
 /*********** End basic ************/
 
 /*********** Header ***************/
@@ -70,7 +75,7 @@ h1.logo {
 span.slogan {
 	color: #fff;
 	font-weight: lighter;
-	font-size: 15px;
+	font-size: 15px !important;
 }
 /************** End header ************/
 
@@ -145,8 +150,7 @@ div.pagination {
 .shopping-cart { border-top: 1px solid #bbb; }
 .form-control {
 	width: 100%;	
-	margin-bottom: 11px;	
-	height: 22px;
+	margin-bottom: 11px;		
 }
 .cart-item {
 	height: 22px;

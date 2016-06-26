@@ -5,7 +5,7 @@
 	<%= render partial:'shared/poster', locals: { img_url: 'poster.png' } %>
 
 	<div class="row products-list">
-		<%= render 'products/products_list' %>
+		<%= render partial:'products/products_list', locals: { products: @products } %>
 	</div>
 	
 </div>

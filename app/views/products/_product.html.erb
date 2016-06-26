@@ -1,18 +1,14 @@
 <div class="col-lg-3" id="product-<%= product.id %>">	
 	<div class="product">
 		<div class="pro-image">
-			<%= image_tag(product.picture.url, alt: "Product") if product.picture? %>
-			<%= image_tag('products/1.jpg', alt: "Product") unless product.picture? %>
+			<%= render partial: 'products/product_image', locals: { product: product } %>
 			<p class="pro-name"><%= product.name %></p>				
 		</div>		
 		
 		<div class="row">
-			<div class="col-lg-6">
+			<div class="col-lg-12">
 				<p class="giasp">VND <%= product.price %></p>	
-			</div>
-			<div class="col-lg-6">
-				<p class="text text-right">ID: <%= product.id %></p>	
-			</div>
+			</div>			
 		</div>	
 
 		<% if logged_in? && current_user.admin? %>
@@ -21,7 +17,7 @@
 					<%= render partial: 'products/watch_form', locals: { product: product } %>
 				</div>		
 				<div class="col-lg-7">
-					<%= link_to "Xem chi tiết", product_path(product), class: 'link link-primary form-control' %>
+					<%= link_to "Xem chi tiết", product_path(product), remote: true, class: 'link link-primary form-control' %>
 				</div>	
 			</div>
 			<div class="row">
@@ -52,7 +48,7 @@
 				</div>	
 
 				<div class="col-lg-7 remove-padding-left text-center">
-					<%= link_to "Xem chi tiết", product_path(product), class: 'form-control' %>
+					<%= link_to "Xem chi tiết", product_path(product), remote: true, class: 'form-control' %>
 				</div>						
 			</div>
 		<% end %>	

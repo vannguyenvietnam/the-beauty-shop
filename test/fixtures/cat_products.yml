@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  catalogue_id: 
+  product_id: 
+
+two:
+  catalogue_id: 
+  product_id: 

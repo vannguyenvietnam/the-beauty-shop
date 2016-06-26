@@ -1,0 +1,2 @@
+<%= image_tag(product.picture.url, alt: "Product") if product.picture? %>
+<%= image_tag('products/1.jpg', alt: "Product") unless product.picture? %>

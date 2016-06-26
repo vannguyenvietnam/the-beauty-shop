@@ -1,6 +1,6 @@
-<% if @parent_id > 0 %>
+<% if !@parent_id.nil? %>
 	$("#sub-catalogues-list-<%= @catalogue.id %>").html("<%= escape_javascript(render 'sub_catalogues_list') %>")
 <% else %>
-	$(".catalogues-list").html("<%= escape_javascript(render @catalogues) %>")
+	$(".catalogues-list").html("<%= escape_javascript(render catalogues) %>")
 	$("nav.navbar").html("<%= escape_javascript(render 'layouts/navbar') %>")
 <% end %>	

@@ -1,5 +1,6 @@
 class Product < ActiveRecord::Base
-  belongs_to :catalogue
+  has_many :cat_products
+  has_many :catalogues, through: :cat_products
   has_many :order_items
   has_many :watcheds, class_name: "Watching", dependent: :destroy
   has_many :watchers, through: :watcheds, source: :user

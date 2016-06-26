@@ -1,8 +1,8 @@
 class CreateWatchings < ActiveRecord::Migration
   def change
-    create_table :watchings do |t|
-      t.integer :product_id
-      t.integer :user_id
+    create_table :watchings, id: :uuid do |t|
+      t.uuid :product_id
+      t.uuid :user_id
 
       t.timestamps null: false
     end

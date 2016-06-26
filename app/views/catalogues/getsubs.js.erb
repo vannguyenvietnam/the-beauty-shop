@@ -1,0 +1,5 @@
+$("#cat-name").html("<%= @catalogue.name %>")
+
+
+$("#sub-catalogues-select").html("")
+$("#sub-catalogues-select").html("<%= escape_javascript(render partial: 'products/sub_catalogues', locals: { sub_catalogues: @sub_catalogues, selected: nil }) %>")

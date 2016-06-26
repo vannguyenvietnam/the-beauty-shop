@@ -14,7 +14,7 @@ class OrderItem < ActiveRecord::Base
   	else
   		product[:price]
   	end
-  end
+  end 
 
   def total_price
   	unit_price * quantity

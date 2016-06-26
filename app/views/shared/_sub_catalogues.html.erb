@@ -4,10 +4,10 @@
 		<ul class="menu sub-menu">
 			<% for i in 0..(sub_catalogues.length - 2) do  %>
 				
-				<li><%= link_to sub_catalogues[i].name, sub_catalogue_path(sub_catalogues[i]), remote: true, id: "sub-cata-#{sub_catalogues[i].id}" %></li>			
+				<li><%= active_link_to sub_catalogues[i].name, catalogue_path(sub_catalogues[i]) %></li>			
 				
 			<% end %>
-				<li class="last"><%= link_to sub_catalogues.last.name, sub_catalogue_path(sub_catalogues.last), remote: true, id: "sub-cata-#{sub_catalogues.last.id}" %></li>
+				<li class="last"><%= active_link_to sub_catalogues.last.name, sub_catalogue_path(sub_catalogues.last) %></li>
 		</ul>		
 	</section>			
 </aside>

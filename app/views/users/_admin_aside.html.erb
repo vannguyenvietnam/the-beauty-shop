@@ -4,8 +4,8 @@
 		<ul class="nav sub-menu">			
 			<li><%= link_to "Users", users_path, remote: true %></li>
 			<li><%= link_to "Catalogues", catalogues_path, remote: true %></li>
-			<li><%= link_to "Products", products_path, remote: true %></li>
-			<li><%= link_to "Add new product", new_product_path, remote: true %></li>
+			<li><%= link_to "Products", products_path %></li>
+			<li><%= link_to "Add new product", new_product_path %></li>
 			<li><%= link_to "Watching list", watching_user_path(current_user), remote: true %></li>
 			<li><%= link_to "Update profile", edit_user_path(current_user), remote: true %></li>				
 			<li class="last">
