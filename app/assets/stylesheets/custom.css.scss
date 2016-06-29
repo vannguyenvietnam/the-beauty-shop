@@ -283,11 +283,11 @@ input.link {
 			padding: 15px;
 			display: block;
 			line-height: 20px;
-		}
-		a:hover { 
-			text-decoration: none;
-			color: #ff4081;			
-		}
+			&:hover, &:focus { 
+				text-decoration: none;
+				color: #ff4081;			
+			}
+		}		
 	}	
 }
 
@@ -309,9 +309,10 @@ input.link {
 	color: #666;
 	padding-top: 5px;
 	padding-bottom: 5px;	
+	&:hover, &:focus { color: #ff4081; }
 }
 .sub-menu li.last a {border-bottom: none;}
-.sub-menu a:hover { color: #ff4081; }
+
 /************** End sub menu ***********/
 
 /************ For menu *************/
@@ -335,8 +336,9 @@ ul.menu-inline li {
 ul.menu-inline a {
 	font-weight: 100;
 	font-size: 10px;
+	&:hover { text-decoration: underline; }
 }
-ul.menu-inline a:hover { text-decoration: underline; }
+
 /*************** End menu *****************/
 
 /*************** Braintree ****************/
