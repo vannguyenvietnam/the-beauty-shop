@@ -1,5 +1,5 @@
 <nav class="navbar navbar-default">	
-	<ul class="nav navbar-nav">
+	<ul class="top-menu">
 		<% catalogues.each do |c| %>
 			<li><%= active_link_to c.name.upcase, catalogue_path(c) %></li>
 		<% end %>

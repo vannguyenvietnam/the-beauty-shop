@@ -44,7 +44,7 @@ footer {
 	font-size: 11px;
 	height: 45px;
 	line-height: 45px;	
-	border-top: 1px solid #bbb;
+	border-top: 1px solid #ddd;
 	margin-top: 30px;
 }
 
@@ -106,7 +106,7 @@ li.cart {margin-right: 20px;}
 
 /************* Information row ***************/
 #info {
-	border-top: 1px solid #bbb;
+	border-top: 1px solid #ddd;
 	margin: 0;
 	margin-top: 20px;
 }
@@ -122,32 +122,38 @@ p.us {
 /******** For displaying products *************/
 .product {	
 	min-height: 150px;
-	border: 1px solid #ddd;	
+	border: 1px solid #e7e7e7;	
 	border-radius: 5px;
-	box-shadow: 1px 1px 2px #bbb;	
-	padding: 10px;
-	margin-top: 5px;	
+	box-shadow: 1px 1px 2px #c5c5c5;	
+	padding: 10px;		
 }
 div[id^="product-"] { padding: 2.5px; }
 .pro-image { max-height: 50%;	}
 
 p.tensp {  height: 30px;}
 
-p.giasp, .soluongsp p { color: #444; }
+p.giasp, .soluongsp p { color: #666; }
 
 div.pagination { 
 	margin-bottom: 0 !important; 	
+	text-align: center;
+	ul > li > a, ul > li > a:hover, ul > li > a:focus { color: #ff4081; }
+	.active > a, .active > a:hover {
+		background-color: #ff4081;
+		color: #fff;
+		border-color: #ff4081;
+	}
 }
 
 /**************** For shopping cart *****************/
 .order-detail {
 	box-shadow: 1px 1px 0px #bbb;	
-	background-color: #eee;
+	background-color: #f8f8f8;
 	padding: 15px 20px;
 	border-radius: 5px;
 	margin-bottom: 5px;
 }
-.shopping-cart { border-top: 1px solid #bbb; }
+.shopping-cart { border-top: 1px solid #e7e7e7; }
 .form-control {
 	width: 100%;	
 	margin-bottom: 11px;		
@@ -165,11 +171,11 @@ div.pagination {
 .form { max-height: 100%; }
 
 #order_item_quantity {		
-	border: 1px solid #bbb;		
+	border: 1px solid #e7e7e7;		
 }
 
 .customer-service {
-	border-top: 1px solid #bbb;
+	border-top: 1px solid #e7e7e7;
 	margin-top: 50px;	
 	height: 40px;	
 	line-height: 40px;
@@ -209,26 +215,21 @@ div.pagination {
 	margin-bottom: 5px;
 	height: 22px;
 	line-height: 22px;
-	border-bottom: 1px solid #bbb;
+	border-bottom: 1px solid #e7e7e7;
 }
 /********** End user **********/
-
-/**************** For Admin **************/
-.quan-ly { margin-top: 30px; }
-input[name="giaSp"] { width: 49%; }
-/************** End admin ************/
 
 /********** For text ******************/
 .text { font-size: 11px; }
 .text-left { text-align: left; }
 .text-right { text-align: right; }
 .text-center { text-align: center; }
-.text-pink { color: #ff4081; }
+.text-pink { color: #ff4081 !important; }
 .text-green { color: green; }
 .text-hover:hover { color: #ff4081; }
 .text-bold { font-weight: bold; }
 .text-grey { color: #666; }
-.border-bottom { border-bottom: 1px solid #bbb; }
+.border-bottom { border-bottom: 1px solid #e7e7e7; }
 .active { color: #ff4081 !important; }
 /*************** End text ****************/
 
@@ -244,7 +245,7 @@ input.link {
 	border: none;
 }
 .link-default {
-	background-color: #ccc;
+	background-color: #f8f8f8;
 	color: #ff4081;		
 }
 .link-primary {	
@@ -256,7 +257,7 @@ input.link {
 	color: #ff4081;
 }
 .link-primary:hover {
-	background-color: #ccc;
+	background-color: #f8f8f8;
 	color: #ff4081;
 	text-decoration: underline;
 }
@@ -274,6 +275,26 @@ input.link {
 /**************** Navbar *************/
 .navbar {
 	margin-bottom: 0px !important;
+	text-align: center !important;
+}
+.top-menu {
+	list-style: none;
+	padding-left: 0;
+	margin-bottom: 0;
+	height: 48px;
+	line-height: 48px;;
+	li {
+		display: inline-block;
+		a { 
+			padding: 15px;
+			display: block;
+			line-height: 20px;
+		}
+		a:hover { 
+			text-decoration: none;
+			color: #ff4081;			
+		}
+	}	
 }
 
 /*********** End navbar ************/
@@ -284,7 +305,7 @@ input.link {
 }
 .aside-menu {
 	box-shadow: 1px 1px 0px #bbb;	
-	background-color: #eee;	
+	background-color: #f8f8f8;	
 	border-radius: 5px;
 	margin-bottom: 5px;
 	padding: 15px;	
@@ -367,7 +388,7 @@ ul.menu-inline a:hover { text-decoration: underline; }
 /* Paypal */
 #braintree-paypal-loggedin {
 	max-width: 100% !important;
-	border: 1px solid rgb(209, 212, 214);
+	border: 1px solid #e7e7e7;
 	border-radius: 4px;
 }
 /************** End Braintree ****************/

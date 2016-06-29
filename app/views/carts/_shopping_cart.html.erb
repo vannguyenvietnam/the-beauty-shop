@@ -15,6 +15,6 @@
 <% else %>
 	<%= render 'shared/cart_item_table_title' %>
 	<% @order_items.each do |order_item| %>
-    <%= render 'carts/cart_row', product: order_item.product, order_item: order_item, show_total: true %>
+    <%= render partial:'carts/cart_row', locals: { product: order_item.product, order_item: order_item, show_total: true } %>
   <% end %>
 <% end %>
