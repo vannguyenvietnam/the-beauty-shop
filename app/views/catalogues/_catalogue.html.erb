@@ -6,15 +6,15 @@
     </div> 
     <div class="col-lg-2">   
     	<%= f.hidden_field :parent_id, value:  catalogue.parent_id %>    
-      <%= f.submit "Update", class: "form-control" %>         
+      <%= f.submit "Update", class: "link-default form-control" %>         
     </div> 
     <% end %>   
 	</div>
 	<div class="col-lg-2 text-center">
-		<%= link_to 'Sub-catalogues', catalogue_path(catalogue), remote: true, class: "form-control" %>
+		<%= link_to 'Sub-catalogues', catalogue_path(catalogue), remote: true, class: "link link-default form-control" %>
 	</div>	
 	<div class="col-lg-1 remove-padding-right">
-		<%= link_to "Delete", catalogue, method: :delete, data: { confirm: "You sure?" }, remote: true, class: 'form-control' %>
+		<%= link_to "Delete", catalogue, method: :delete, data: { confirm: "You sure?" }, remote: true, class: 'link link-default form-control' %>
 	</div>
 	
 	<div class="col-lg-12" id="sub-catalogues-list-<%= catalogue.id %>" style="margin-bottom: 20px"></div>

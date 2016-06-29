@@ -22,11 +22,11 @@
 			</div>
 			<div class="row">
 				<div class="col-lg-5 remove-padding-right text-center">
-					<%= link_to "Update", edit_product_path(product), class: 'form-control' %>
+					<%= link_to "Update", edit_product_path(product), class: 'link link-default form-control' %>
 				</div>	
 
 				<div class="col-lg-7 text-center" id="watch-form-<%= product.id %>">
-					<%= link_to "Delete", product, method: :delete, data: { confirm: "You sure?" }, remote: true, class: 'form-control' %>
+					<%= link_to "Delete", product, method: :delete, data: { confirm: "You sure?" }, remote: true, class: 'link link-default form-control' %>
 				</div>		
 			</div>
 
@@ -48,7 +48,7 @@
 				</div>	
 
 				<div class="col-lg-7 remove-padding-left text-center">
-					<%= link_to "Xem chi tiết", product_path(product), remote: true, class: 'form-control' %>
+					<%= link_to "Xem chi tiết", product_path(product), remote: true, class: 'link link-default form-control' %>
 				</div>						
 			</div>
 		<% end %>	

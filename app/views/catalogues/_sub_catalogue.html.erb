@@ -6,11 +6,11 @@
     </div> 
     <div class="col-lg-2">   
     	<%= f.hidden_field :parent_id, value:  sub.parent_id %>    
-      <%= f.submit "Update", class: "link link-inline form-control" %>         
+      <%= f.submit "Update", class: "link-default form-control" %>         
     </div> 
     <% end %>   
 	</div>
 	<div class="col-lg-1 remove-padding-left">
-	  <%= link_to "Delete", sub, method: :delete, data: { confirm: "You sure?" }, remote: true, class: 'link link-inline link-control' %>
+	  <%= link_to "Delete", sub, method: :delete, data: { confirm: "You sure?" }, remote: true, class: 'link link-default link-control' %>
   </div>
 </div>

@@ -1,7 +1,9 @@
+<% provide(:title, current_user.name) %>
+
 <% if current_user.admin? %>
 	<%= render 'users/admin_aside' %>
 
-	<div class="col-lg-9 content">	
+	<div class="col-lg-9 user-page">	
 		<div class="row products-list">
 			<%= render partial:'products/products_list', locals: { products: @products } %>
 		</div>	
