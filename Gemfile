@@ -48,6 +48,8 @@ gem 'fog',                     '~> 1.36.0'
 
 gem 'pg'
 
+gem 'amazon-ecs'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

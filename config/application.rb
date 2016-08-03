@@ -1,6 +1,8 @@
 require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
+require 'amazon/ecs'
+require 'open-uri'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -27,5 +29,12 @@ module TheBeautyShop
     #config.generators do |g|
     #  g.orm :active_record, primary_key_type: :uuid
     #end
+
+    Amazon::Ecs.configure do |options|
+      options[:AWS_access_key_id] = 'AKIAIFBQW6LBTSWDFX5Q'
+      options[:AWS_secret_key] = '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'
+      options[:associate_tag] = 'beauty048b-20'
+    end
+    
   end
 end
