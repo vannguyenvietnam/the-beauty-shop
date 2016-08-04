@@ -24,7 +24,6 @@ catalogues.each { |cata|
 }
 
 # Products
-image_id = 2
 # Moisturizer
 	cata = catalogues[0]
 	sub_catalogues = cata.sub_catalogues
@@ -39,23 +38,22 @@ image_id = 2
 		res.items.each do |item|
 			product = Product.new
 		  product.name = item.get('ItemAttributes/Title')
-		  product.price = item.get('OfferSummary/LowestNewPrice/Amount')
-		  product.quantity = item.get('OfferSummary/TotalNew')
+		  product.price = item.get('OfferSummary/LowestNewPrice/Amount').to_i
+		  product.quantity = item.get('OfferSummary/TotalNew').to_i
 		  product.description = item.get('ItemAttributes/Feature')
-		  product.active = true
-
-		  image_url = item.get('LargeImage/URL')	  
-		  IO.copy_stream(open(image_url), "app/assets/images/products/#{image_id}.jpg")	
-		  File.open("app/assets/images/products/#{image_id}.jpg") do |f|
-		  	product.picture = f
-		  end
+		  product.active = true		  
 
 		  product.save!
 		  
 		  sub_cata.cat_products.create(product_id: product.id)
 		  cata.cat_products.create(product_id: product.id)
 
-		  image_id += 1
+		  image_url = item.get('LargeImage/URL')	 
+		  download =  open(image_url)
+		  IO.copy_stream(download, "app/assets/images/products/#{product.id}.jpg")	
+		  File.open("app/assets/images/products/#{product.id}.jpg") do |f|
+		  	product.update_attributes(picture: f)
+		  end		  
 		end
 	}
 
@@ -73,23 +71,22 @@ image_id = 2
 		res.items.each do |item|
 			product = Product.new
 		  product.name = item.get('ItemAttributes/Title')
-		  product.price = item.get('OfferSummary/LowestNewPrice/Amount')
-		  product.quantity = item.get('OfferSummary/TotalNew')
+		  product.price = item.get('OfferSummary/LowestNewPrice/Amount').to_i
+		  product.quantity = item.get('OfferSummary/TotalNew').to_i
 		  product.description = item.get('ItemAttributes/Feature')
 		  product.active = true
-
-		  image_url = item.get('LargeImage/URL')	  
-		  IO.copy_stream(open(image_url), "app/assets/images/products/#{image_id}.jpg")	
-		  File.open("app/assets/images/products/#{image_id}.jpg") do |f|
-		  	product.picture = f
-		  end
 
 		  product.save!
 		  
 		  sub_cata.cat_products.create(product_id: product.id)
 		  cata.cat_products.create(product_id: product.id)
 
-		  image_id += 1
+		  image_url = item.get('LargeImage/URL')	 
+		  download =  open(image_url)
+		  IO.copy_stream(download, "app/assets/images/products/#{product.id}.jpg")	
+		  File.open("app/assets/images/products/#{product.id}.jpg") do |f|
+		  	product.update_attributes(picture: f)
+		  end		 
 		end
 	}
 
@@ -107,23 +104,22 @@ image_id = 2
 		res.items.each do |item|
 			product = Product.new
 		  product.name = item.get('ItemAttributes/Title')
-		  product.price = item.get('OfferSummary/LowestNewPrice/Amount')
-		  product.quantity = item.get('OfferSummary/TotalNew')
+		  product.price = item.get('OfferSummary/LowestNewPrice/Amount').to_i
+		  product.quantity = item.get('OfferSummary/TotalNew').to_i
 		  product.description = item.get('ItemAttributes/Feature')
 		  product.active = true
-
-		  image_url = item.get('LargeImage/URL')	  
-		  IO.copy_stream(open(image_url), "app/assets/images/products/#{image_id}.jpg")	
-		  File.open("app/assets/images/products/#{image_id}.jpg") do |f|
-		  	product.picture = f
-		  end
 
 		  product.save!
 		  
 		  sub_cata.cat_products.create(product_id: product.id)
 		  cata.cat_products.create(product_id: product.id)
 
-		  image_id += 1
+		  image_url = item.get('LargeImage/URL')	 
+		  download =  open(image_url)
+		  IO.copy_stream(download, "app/assets/images/products/#{product.id}.jpg")	
+		  File.open("app/assets/images/products/#{product.id}.jpg") do |f|
+		  	product.update_attributes(picture: f)
+		  end		 
 		end
 	}
 
@@ -146,18 +142,17 @@ image_id = 2
 		  product.description = item.get('ItemAttributes/Feature')
 		  product.active = true
 
-		  image_url = item.get('LargeImage/URL')	  
-		  IO.copy_stream(open(image_url), "app/assets/images/products/#{image_id}.jpg")	
-		  File.open("app/assets/images/products/#{image_id}.jpg") do |f|
-		  	product.picture = f
-		  end
-
 		  product.save!
 		  
 		  sub_cata.cat_products.create(product_id: product.id)
 		  cata.cat_products.create(product_id: product.id)
 
-		  image_id += 1
+		  image_url = item.get('LargeImage/URL')	 
+		  download =  open(image_url)
+		  IO.copy_stream(download, "app/assets/images/products/#{product.id}.jpg")	
+		  File.open("app/assets/images/products/#{product.id}.jpg") do |f|
+		  	product.update_attributes(picture: f)
+		  end		 
 		end
 	}
 
@@ -175,23 +170,22 @@ image_id = 2
 		res.items.each do |item|
 			product = Product.new
 		  product.name = item.get('ItemAttributes/Title')
-		  product.price = item.get('OfferSummary/LowestNewPrice/Amount')
-		  product.quantity = item.get('OfferSummary/TotalNew')
+		  product.price = item.get('OfferSummary/LowestNewPrice/Amount').to_i
+		  product.quantity = item.get('OfferSummary/TotalNew').to_i
 		  product.description = item.get('ItemAttributes/Feature')
 		  product.active = true
-
-		  image_url = item.get('LargeImage/URL')	  
-		  IO.copy_stream(open(image_url), "app/assets/images/products/#{image_id}.jpg")	
-		  File.open("app/assets/images/products/#{image_id}.jpg") do |f|
-		  	product.picture = f
-		  end
 
 		  product.save!
 		  
 		  sub_cata.cat_products.create(product_id: product.id)
 		  cata.cat_products.create(product_id: product.id)
 
-		  image_id += 1
+		  image_url = item.get('LargeImage/URL')	 
+		  download =  open(image_url)
+		  IO.copy_stream(download, "app/assets/images/products/#{product.id}.jpg")	
+		  File.open("app/assets/images/products/#{product.id}.jpg") do |f|
+		  	product.update_attributes(picture: f)
+		  end		 
 		end
 	}
 
