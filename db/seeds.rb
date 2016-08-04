@@ -7,34 +7,39 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 # Catalogues
+Catalogue.create!(name: "Skin care")
 Catalogue.create!(name: "Moisturizer")
 Catalogue.create!(name: "Shower")
 Catalogue.create!(name: "Make up")
 Catalogue.create!(name: "Perfume")
 Catalogue.create!(name: "Hair")
+Catalogue.create!(name: "Men")
+Catalogue.create!(name: "Facial")
+Catalogue.create!(name: "Body moisturizer")
+Catalogue.create!(name: "Sampoo")
 
 catalogues = Catalogue.where("parent_id IS NULL")
 
 # SubCatalogues
 catalogues.each { |cata|
-	5.times do
+	10.times do
 	  name = Faker::Lorem.word.capitalize
 	  cata.sub_catalogues.create!(name: name)
 	end
 }
 
 # Products
-# Moisturizer
-	cata = catalogues[0]
-	sub_catalogues = cata.sub_catalogues
-	page = 1
-	sub_catalogues.each { |sub_cata|
-		res = Amazon::Ecs.item_search('moisturizer', {response_group: 'Medium', 
+def get_products_amazon(cata, keyword)	
+	sub_catalogues = cata.sub_catalogues	
+	for i in 0...(sub_catalogues.count)
+		sub_cata = sub_catalogues[i]
+		page = i + 1
+		res = Amazon::Ecs.item_search(keyword, {response_group: 'Medium', 
 																									 sort: 'salesrank', 
 																									 search_index: 'Beauty',
 																									 brand: 'the body shop',
 																									 item_page: page})
-		page += 1
+		
 		res.items.each do |item|
 			product = Product.new
 		  product.name = item.get('ItemAttributes/Title')
@@ -48,146 +53,38 @@ catalogues.each { |cata|
 		  sub_cata.cat_products.create(product_id: product.id)
 		  cata.cat_products.create(product_id: product.id)
 
-		  image_url = item.get('LargeImage/URL')	 
-		  download =  open(image_url)
-		  IO.copy_stream(download, "app/assets/images/products/#{product.id}.jpg")	
-		  File.open("app/assets/images/products/#{product.id}.jpg") do |f|
-		  	product.update_attributes(picture: f)
-		  end		  
+		  image_url = item.get('LargeImage/URL')		   
+		  if !image_url.nil?
+		  	download = open(image_url.to_s)
+			  IO.copy_stream(download, "app/assets/images/products/#{product.id}.jpg")	
+			  File.open("app/assets/images/products/#{product.id}.jpg") do |f|
+			  	product.update_attributes(picture: f)
+			  end	
+			end
 		end
-	}
 
+	end
+end
+# Skin care
+	get_products_amazon(catalogues[0], 'skin care')
+# Moisturizer
+	get_products_amazon(catalogues[0], 'moisturizer')
 # Shower
-	cata = catalogues[0]
-	sub_catalogues = cata.sub_catalogues
-	page = 1
-	sub_catalogues.each { |sub_cata|
-		res = Amazon::Ecs.item_search('shower', {response_group: 'Medium', 
-																									 sort: 'salesrank', 
-																									 search_index: 'Beauty',
-																									 brand: 'the body shop',
-																									 item_page: page})
-		page += 1
-		res.items.each do |item|
-			product = Product.new
-		  product.name = item.get('ItemAttributes/Title')
-		  product.price = item.get('OfferSummary/LowestNewPrice/Amount').to_i
-		  product.quantity = item.get('OfferSummary/TotalNew').to_i
-		  product.description = item.get('ItemAttributes/Feature')
-		  product.active = true
-
-		  product.save!
-		  
-		  sub_cata.cat_products.create(product_id: product.id)
-		  cata.cat_products.create(product_id: product.id)
-
-		  image_url = item.get('LargeImage/URL')	 
-		  download =  open(image_url)
-		  IO.copy_stream(download, "app/assets/images/products/#{product.id}.jpg")	
-		  File.open("app/assets/images/products/#{product.id}.jpg") do |f|
-		  	product.update_attributes(picture: f)
-		  end		 
-		end
-	}
-
+	get_products_amazon(catalogues[1], 'shower')
 # Make up
-	cata = catalogues[0]
-	sub_catalogues = cata.sub_catalogues
-	page = 1
-	sub_catalogues.each { |sub_cata|
-		res = Amazon::Ecs.item_search('make up', {response_group: 'Medium', 
-																									 sort: 'salesrank', 
-																									 search_index: 'Beauty',
-																									 brand: 'the body shop',
-																									 item_page: page})
-		page += 1
-		res.items.each do |item|
-			product = Product.new
-		  product.name = item.get('ItemAttributes/Title')
-		  product.price = item.get('OfferSummary/LowestNewPrice/Amount').to_i
-		  product.quantity = item.get('OfferSummary/TotalNew').to_i
-		  product.description = item.get('ItemAttributes/Feature')
-		  product.active = true
-
-		  product.save!
-		  
-		  sub_cata.cat_products.create(product_id: product.id)
-		  cata.cat_products.create(product_id: product.id)
-
-		  image_url = item.get('LargeImage/URL')	 
-		  download =  open(image_url)
-		  IO.copy_stream(download, "app/assets/images/products/#{product.id}.jpg")	
-		  File.open("app/assets/images/products/#{product.id}.jpg") do |f|
-		  	product.update_attributes(picture: f)
-		  end		 
-		end
-	}
-
+	get_products_amazon(catalogues[2], 'make up')
 # Perfume
-	cata = catalogues[0]
-	sub_catalogues = cata.sub_catalogues
-	page = 1
-	sub_catalogues.each { |sub_cata|
-		res = Amazon::Ecs.item_search('perfume', {response_group: 'Medium', 
-																									 sort: 'salesrank', 
-																									 search_index: 'Beauty',
-																									 brand: 'the body shop',
-																									 item_page: page})
-		page += 1
-		res.items.each do |item|
-			product = Product.new
-		  product.name = item.get('ItemAttributes/Title')
-		  product.price = item.get('OfferSummary/LowestNewPrice/Amount')
-		  product.quantity = item.get('OfferSummary/TotalNew')
-		  product.description = item.get('ItemAttributes/Feature')
-		  product.active = true
-
-		  product.save!
-		  
-		  sub_cata.cat_products.create(product_id: product.id)
-		  cata.cat_products.create(product_id: product.id)
-
-		  image_url = item.get('LargeImage/URL')	 
-		  download =  open(image_url)
-		  IO.copy_stream(download, "app/assets/images/products/#{product.id}.jpg")	
-		  File.open("app/assets/images/products/#{product.id}.jpg") do |f|
-		  	product.update_attributes(picture: f)
-		  end		 
-		end
-	}
-
+	get_products_amazon(catalogues[3], 'perfume')
 # Hair
-	cata = catalogues[0]
-	sub_catalogues = cata.sub_catalogues
-	page = 1
-	sub_catalogues.each { |sub_cata|
-		res = Amazon::Ecs.item_search('hair', {response_group: 'Medium', 
-																									 sort: 'salesrank', 
-																									 search_index: 'Beauty',
-																									 brand: 'the body shop',
-																									 item_page: page})
-		page += 1
-		res.items.each do |item|
-			product = Product.new
-		  product.name = item.get('ItemAttributes/Title')
-		  product.price = item.get('OfferSummary/LowestNewPrice/Amount').to_i
-		  product.quantity = item.get('OfferSummary/TotalNew').to_i
-		  product.description = item.get('ItemAttributes/Feature')
-		  product.active = true
-
-		  product.save!
-		  
-		  sub_cata.cat_products.create(product_id: product.id)
-		  cata.cat_products.create(product_id: product.id)
-
-		  image_url = item.get('LargeImage/URL')	 
-		  download =  open(image_url)
-		  IO.copy_stream(download, "app/assets/images/products/#{product.id}.jpg")	
-		  File.open("app/assets/images/products/#{product.id}.jpg") do |f|
-		  	product.update_attributes(picture: f)
-		  end		 
-		end
-	}
+	get_products_amazon(catalogues[4], 'hair')
+# Men
+	get_products_amazon(catalogues[4], 'men')
+# Facial
+	get_products_amazon(catalogues[4], 'facial')
+# Body moisturizer
+	get_products_amazon(catalogues[4], 'body moisturizer')
+# Sampoo
+	get_products_amazon(catalogues[4], 'Sampoo')
 
 
 # Order status

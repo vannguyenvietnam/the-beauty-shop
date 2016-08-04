@@ -8,8 +8,7 @@ class Product < ActiveRecord::Base
   mount_uploader :picture, PictureUploader
   #default_scope { where(active: true) }
 
-  validates :name, presence: true, length: { maximum: 140 }
-  validates :description, presence: true, length: { maximum: 255 }
+  validates :name, presence: true  
   validates :price, presence: true, numericality: { only_integer: true, greater_than: 0 }
   validates :quantity, presence: true, numericality: { only_integer: true, greater_than: 0 }
   validate :picture_size

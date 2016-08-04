@@ -5,8 +5,7 @@
 html { font-family: "Lucida Sans", sans-serif; }
 body { margin: auto; }
 
-img {
-	width: 100%;	
+img {		
 	margin: 0px;
 	padding: 0px;
 }
@@ -101,6 +100,7 @@ li.cart {margin-right: 20px;}
 #poster { 
 	margin: 0;
 	padding: 0;
+	img { width: 100%; }
 }
 /**************** End Poster *****************/
 
@@ -128,7 +128,15 @@ p.us {
 	padding: 10px;		
 }
 div[id^="product-"] { padding: 2.5px; }
-.pro-image { max-height: 50%;	}
+.pro-image { 
+	height: 210px;
+	img { 
+		display: block;
+		margin: auto;
+		max-width: 100%;
+		height: 150px; 
+	}
+}
 
 p.tensp {  height: 30px;}
 
