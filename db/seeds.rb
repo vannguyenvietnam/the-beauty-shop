@@ -68,23 +68,23 @@ end
 # Skin care
 	get_products_amazon(catalogues[0], 'skin care')
 # Moisturizer
-	get_products_amazon(catalogues[0], 'moisturizer')
+	get_products_amazon(catalogues[1], 'moisturizer')
 # Shower
-	get_products_amazon(catalogues[1], 'shower')
+	get_products_amazon(catalogues[2], 'shower')
 # Make up
-	get_products_amazon(catalogues[2], 'make up')
+	get_products_amazon(catalogues[3], 'make up')
 # Perfume
-	get_products_amazon(catalogues[3], 'perfume')
+	get_products_amazon(catalogues[4], 'perfume')
 # Hair
-	get_products_amazon(catalogues[4], 'hair')
+	get_products_amazon(catalogues[5], 'hair')
 # Men
-	get_products_amazon(catalogues[4], 'men')
+	get_products_amazon(catalogues[6], 'men')
 # Facial
-	get_products_amazon(catalogues[4], 'facial')
+	get_products_amazon(catalogues[7], 'gentle')
 # Body moisturizer
-	get_products_amazon(catalogues[4], 'body moisturizer')
+	get_products_amazon(catalogues[8], 'body')
 # Sampoo
-	get_products_amazon(catalogues[4], 'Sampoo')
+	get_products_amazon(catalogues[9], 'sampoo')
 
 
 # Order status
