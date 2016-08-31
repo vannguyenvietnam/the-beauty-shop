@@ -4,6 +4,8 @@ require 'rails/all'
 require 'amazon/ecs'
 require 'open-uri'
 
+Dotenv.load
+
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
@@ -31,9 +33,9 @@ module TheBeautyShop
     #end
 
     Amazon::Ecs.configure do |options|
-      options[:AWS_access_key_id] = ''
-      options[:AWS_secret_key] = ''
-      options[:associate_tag] = ''
+      options[:AWS_access_key_id] = ENV["AWS_ACCESS_KEY_ID"]
+      options[:AWS_secret_key] = ENV["AWS_SECRET_KEY"]
+      options[:associate_tag] = ENV["ASSOCIATE_TAG"]
     end
     
   end
