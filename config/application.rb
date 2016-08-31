@@ -31,9 +31,9 @@ module TheBeautyShop
     #end
 
     Amazon::Ecs.configure do |options|
-      options[:AWS_access_key_id] = 'AKIAIFBQW6LBTSWDFX5Q'
-      options[:AWS_secret_key] = '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'
-      options[:associate_tag] = 'beauty048b-20'
+      options[:AWS_access_key_id] = ''
+      options[:AWS_secret_key] = ''
+      options[:associate_tag] = ''
     end
     
   end
