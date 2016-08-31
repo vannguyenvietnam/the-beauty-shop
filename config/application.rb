@@ -4,7 +4,6 @@ require 'rails/all'
 require 'amazon/ecs'
 require 'open-uri'
 
-Dotenv.load
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -31,6 +30,8 @@ module TheBeautyShop
     #config.generators do |g|
     #  g.orm :active_record, primary_key_type: :uuid
     #end
+
+    Dotenv.load
 
     Amazon::Ecs.configure do |options|
       options[:AWS_access_key_id] = ENV["AWS_ACCESS_KEY_ID"]
