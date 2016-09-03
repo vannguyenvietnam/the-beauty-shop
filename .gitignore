@@ -42,4 +42,4 @@ bower.json
 .byebug_history
 
 # Ignore product pictures
-/public/uploads/product/picture/*
+/public/uploads/product/picture
