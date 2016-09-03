@@ -230,8 +230,6 @@ GEM
       pkg-config (~> 1.1.7)
     pg (0.18.4)
     pkg-config (1.1.7)
-    puma (2.11.3)
-      rack (>= 1.1, < 2.0)
     rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -331,7 +329,6 @@ DEPENDENCIES
   mini_magick (~> 3.8.0)
   minitest-reporters (~> 1.0.5)
   pg
-  puma (~> 2.11.1)
   rails (= 4.2.6)
   rails_12factor (~> 0.0.2)
   responders (~> 2.0)

@@ -12,6 +12,20 @@ class Product < ActiveRecord::Base
   validates :price, presence: true, numericality: { only_integer: true, greater_than: 0 }
   validates :quantity, presence: true, numericality: { only_integer: true, greater_than: 0 }
   validate :picture_size
+  
+  # Elasticsearch
+  # include Searchable
+  #
+    # Delete the previous products index in Elasticsearch
+    # Product.__elasticsearch__.client.indices.delete index: Article.index_name rescue nil
+
+    # Create the new index with the new mapping
+    # Product.__elasticsearch__.client.indices.create \
+    #  index: Article.index_name,
+    #  body: { settings: Article.settings.to_hash, mappings: Article.mappings.to_hash }
+
+    # Index all article records from the DB to Elasticsearch
+    # Product.import # # for auto sync model with elastic search 
 
   private
 

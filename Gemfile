@@ -50,6 +50,13 @@ gem 'pg'
 
 gem 'amazon-ecs'
 
+# NOTE: Kaminari has to be loaded before Elasticsearch::Model so the callbacks are executed
+# gem 'kaminari'
+
+#gem 'elasticsearch', git: 'git://github.com/elasticsearch/elasticsearch-ruby.git'
+#gem 'elasticsearch-model', git: 'git://github.com/elasticsearch/elasticsearch-rails.git'
+#gem 'elasticsearch-rails', git: 'git://github.com/elasticsearch/elasticsearch-rails.git'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
@@ -74,5 +81,5 @@ end
 
 group :production do  
   gem 'rails_12factor', '~> 0.0.2'
-  gem 'puma', '~> 2.11.1'  
+  #gem 'puma', '~> 2.11.1'  
 end
